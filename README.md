@@ -1,4 +1,7 @@
 # ![BigBrotherBot](http://i.imgur.com/7sljo4G.png) Echelon BS4 beta (v2.1)
+
+NOTE: E-Mail feature is mostly disabled
+
 Echelon is a web investigation tool for B3 administrators to study detailed statistics and other helpful information: about the B3 bot; game server clients; and admins. Echelon v.2 is not all about just inspecting information, it is also about interacting with the B3 bot; the gameserver; and the B3 MySQL database.
 
 # Changelog
