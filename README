@@ -2,6 +2,8 @@ Bugs:
 -update E-Mail feature
 -and many more
 
+Echelon v.2 is a Big Brother Bot project that it is currently under development. Echelon is a web investigation tool for B3 administrators to study detailed statistics and other helpful information: about the B3 bot; game server clients; and admins. Echelon v.2 is not all about just inspecting information, it is also about interacting with the B3 bot; the gameserver; and the B3 MySQL databse.
+
 ## Echelon Development v2 ##
 All the files are copyrighted by Eire.32 (eire32designs.com) and Bigbrotherbot (bigbrotherbot.com)
 
