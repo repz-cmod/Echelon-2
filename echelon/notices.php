@@ -59,9 +59,11 @@ require 'inc/header.php';
 
 if(!$db->error) :
 ?>
-
-<table summary="A list of <?php echo limit_rows; ?> notices made by admins in the server regarding a certain player">
-	<caption>Notices<small>There are a total of <strong><?php echo $total_rows; ?></strong> notices, made by admins in the server(s)</small></caption>
+<div class="col-lg-11 mx-auto my-2">
+<div class="card my-2">
+<h5 class="card-header">Notices</h5>
+<div class="card-body table table-hover table-sm table-responsive">
+<table width="100%">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -121,7 +123,7 @@ EOD;
 	?>
 	</tbody>
 </table>
-
+</div></div></div>
 <?php 
 	endif; // db error
 

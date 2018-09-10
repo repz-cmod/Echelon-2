@@ -8,7 +8,7 @@ $email = cleanvar($_POST['email']);
 $cur_pw = cleanvar($_POST['password']);
 $change_pw = $_POST['change-pw']; // password is being hashed no need to validate
 
-if($change_pw == 'on') { // check to see if the password is to be changed
+if(!$_POST['pass1'] == '') { // check to see if the password is to be changed
 	$pass1 = $_POST['pass1'];
 	$pass2 = $_POST['pass2'];
 	

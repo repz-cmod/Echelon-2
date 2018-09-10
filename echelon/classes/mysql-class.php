@@ -1,4 +1,5 @@
 <?php
+
 ## Die if the user has come to this page directly ##
 if (!empty($_SERVER['SCRIPT_FILENAME']) && 'mysql-class.php' == basename($_SERVER['SCRIPT_FILENAME']))
   		die ('Please do not load this page directly. Thanks!');
@@ -95,8 +96,7 @@ class DB_B3 {
     public function __destruct() {
         if($this->mysql != NULL) // if it is set/created (defalt starts at NULL)
             @$this->mysql->close(); // close the connection
-		
-		$this->instance = NULL;
+		//$this->instance = NULL;
     }
 	
 	/**

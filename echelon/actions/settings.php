@@ -28,6 +28,7 @@ $f_time_format  = cleanvar($_POST['time_format']);
 $f_time_zone = cleanvar($_POST['time_zone']);     
 $f_email_header = cleanvar($_POST['email_header']);
 $f_email_footer = cleanvar($_POST['email_footer']);
+$f_newsfeed = cleanvar($_POST['newsfeed']);
 $f_pw_req_level = cleanvar($_POST['pw_req_level']);
 $f_pw_req_level_group = cleanvar($_POST['pw_req_level_group']);
 
@@ -61,6 +62,7 @@ emptyInput($f_time_format, 'time format');
 emptyInput($f_time_zone, 'time zone');
 emptyInput($f_email_header, 'email header text');
 emptyInput($f_email_footer, 'email footer text');
+emptyInput($f_newsfeed, 'newsfeed text');
 emptyInput($password, 'your current password');
 
 ## Check no. ##
@@ -88,6 +90,7 @@ $sent_settings = array(
 	'time_zone' => $f_time_zone,    
 	'email_header' => $f_email_header,
 	'email_footer' => $f_email_footer,
+    'newsfeed' => $f_newsfeed,
 );
 
 ## What needs updating ##

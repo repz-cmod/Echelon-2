@@ -5,7 +5,7 @@ require '../../inc.php';
 
 ## Check the form was submitted ##
 if(!$_POST['unban-sub']) { // if the form not is submitted
-	set_error('Please do not call that page directly, thank you.');
+	set_error('Please do not call that unban page directly, thank you.');
 	send('../../index.php');
 }
 
@@ -61,6 +61,6 @@ if($type == 'Ban') :
 endif;
 
 if($results) // if good results send back good message
-	sendGood('Penalty has been deactivated');
+	sendGood('Penalty has been deactivated.');
 	
 exit;

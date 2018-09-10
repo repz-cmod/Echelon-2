@@ -52,7 +52,7 @@ function loggedIn() { // are they logged in
 function auth($name) {
 	locked(); // stop blocked people from acessing	
 	if(!$this->loggedIn()) { // if not authorised/logged in
-		set_error('Please login to Echelon');
+		//set_error('Please login to Echelon');
 		sendLogin();
 		exit;
 	}
@@ -112,7 +112,8 @@ function displayName() {
 	if($this->name == '')
 		echo 'Guest';
 	else
-		echo '<a href="'.PATH.'me.php" title="Go to your own account settings">'. $this->name .'</a>';
+		#echo '<a href="'.PATH.'me.php" title="Go to your own account settings">'. $this->name .'</a>';
+        echo $this->name;
 		
 	return;
 }
@@ -125,9 +126,9 @@ function displayName() {
 function lastSeen($time_format = 'd M y') {
 
 	if($_SESSION['last_seen'] != '')
-		echo 'Last Seen: '. date($time_format, $_SESSION['last_seen']);
+		echo date($time_format, $_SESSION['last_seen']);
 	else
-		echo 'Welcome to Echelon!';
+		return NULL;
 }
 
 /**

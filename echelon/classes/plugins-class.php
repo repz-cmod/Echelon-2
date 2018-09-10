@@ -58,8 +58,11 @@ class plugins {
 	function displayCDBio() {
 		foreach(self::$plugins_class  as $plugin) :
 			if(method_exists($plugin, 'returnClientBio')) {
-				$content = $plugin->returnClientBio();
-				echo $content;
+                $content = $plugin->returnClientBio();
+                if (!(empty($content)))
+                    echo $content;
+                else
+                    return NULL;
 			}
 		endforeach;
 	}
@@ -73,10 +76,22 @@ class plugins {
 		foreach(self::$plugins_class as $plugin) :
 			if(method_exists($plugin, 'returnClientFormTab')) {
 				$content = $plugin->returnClientFormTab();
-				echo $content;
+                if (!(empty($plugin->returnClientBio())))
+                    echo $content;
 			}
 		endforeach;
 	}
+
+	function displayCDFormNavTab() {
+		foreach(self::$plugins_class as $plugin) :
+			if(method_exists($plugin, 'returnClientNavTab')) {
+				$content = $plugin->returnClientNavTab();
+                if (!(empty($plugin->returnClientBio())))
+                    echo '<li class="nav-item">'.$content.'</li>';
+			}
+		endforeach;
+	}
+	
 	
 	/**
 	 * This function display forms on the clientdetails page added by any plugins

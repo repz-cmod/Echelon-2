@@ -55,11 +55,14 @@ require 'inc/header.php';
 
 if(!$db->error) :
 ?>
+<div class="col-lg-11 mx-auto my-2">
+<div class="card my-2">
+<h5 class="card-header">Public Ban List</h5>
+<div class="card-body table table-hover table-sm table-responsive">
 
-<table summary="A list of <?php echo $limit_rows; ?> active tempbans/bans">
-	<caption>Public Ban List<small>There are <strong><?php echo $total_rows; ?></strong> active bans/tempbans for 
+<table width="100%">
 		<form action="pubbans.php" method="get" id="pubbans-form" class="sm-f-select">
-			<select name="game" onchange="this.form.submit()">
+			<select class="form-control my-2" name="game" onchange="this.form.submit()">
 				<?php
 				
 				$games_list = $dbl->getGamesList();
@@ -81,8 +84,6 @@ if(!$db->error) :
 				?>
 			</select>
 		</form>
-		</small>
-	</caption>
 <thead>
 	<tr>
 		<th>Client
@@ -161,7 +162,7 @@ endif;
 ?>
 </tbody>
 </table>
-
+</div></div></div>
 <?php 
 	endif; // db error
 

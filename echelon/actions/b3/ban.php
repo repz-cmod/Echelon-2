@@ -4,7 +4,7 @@ $b3_conn = true; // this page needs to connect to the B3 database
 require '../../inc.php';
 
 if(!$_POST['ban-sub']) { // if the form not is submitted
-	set_error('Please do not call that page directly, thank you.');
+	set_error('Please do not call that ban page directly, thank you.');
 	send('../../index.php');
 }
 
@@ -72,11 +72,12 @@ if($is_pb_ban == true) :
 			$c_ip = trim($c_ip);
 		
 			// PB_SV_BanGuid [guid] [player_name] [IP_Address] [reason]
-			$command = "pb_sv_banguid " . $pbid . " " . $c_name . " " . $c_ip . " " . $reason;
-			rcon($rcon_ip, $rcon_port, $rcon_pass, $command); // send the ban command
-			sleep(1); // sleep for 1 sec in ordere to the give server some time
-			$command_upd = "pb_sv_updbanfile"; // we need to update the ban files
-			rcon($rcon_ip, $rcon_port, $rcon_pass, $command_upd); // send the ban file update command
+			#$command = "pb_sv_banguid " . $pbid . " " . $c_name . " " . $c_ip . " " . $reason;
+			$command = "drop " . $c_name;
+            rcon($rcon_ip, $rcon_port, $rcon_pass, $command); // send the ban command
+			#sleep(1); // sleep for 1 sec in ordere to the give server some time
+			#$command_upd = "pb_sv_updbanfile"; // we need to update the ban files
+			#rcon($rcon_ip, $rcon_port, $rcon_pass, $command_upd); // send the ban file update command
 		endif;
 
 		$i++;
@@ -84,7 +85,7 @@ if($is_pb_ban == true) :
 endif; // end if a $is_pb_ban == true
 
 if($result)
-	sendGood('Ban added to banlist and to the DB');
+	sendGood('Ban has been added to the database.');
 else
 	sendBack('Something went wrong the ban was not added');
 

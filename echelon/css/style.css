@@ -37,7 +37,7 @@ h4 { font-size: 21px; }
 h5 { font-size: 18px; }
 
 h1, h2, h3, h4 {
-	font-weight: noraml; font-family: "Times New Roman", Times, serif; 
+	font-weight: noraml; font-family: "Trebuchet MS", Helvetica, sans-serif; 
 }
 
 /* Form Styling */
@@ -255,8 +255,8 @@ tbody tr:hover { background: #FFF url(../images/table-hover.png) repeat; }
 tbody tr:hover td { color :#454545; }
 tfoot td, 
 tfoot th { border-left: none; border-top: 1px solid #CCC; padding: 6px; background: #FFF url(../images/table-foot.png) repeat; color: #666; }
-caption { text-align: left; font-size: 20px; padding: 0 10px; color: #333; font-family: Georgia, "Times New Roman", Times, serif; }
-	caption small { font-size: 11px; color: #666; margin-left: 5px; padding-left: 5px; border-left: 1px solid #ccc; font-family: Geneva, Arial, Helvetica, sans-serif; }
+caption { text-align: left; font-size: 20px; padding: 0 10px; color: #333; font-family: Georgia, "Trebuchet MS", Helvetica, sans-serif; }
+	caption small { font-size: 11px; color: #666; margin-left: 5px; padding-left: 5px; border-left: 1px solid #ccc; font-family: Georgia, "Trebuchet MS", Helvetica, sans-serif; }
 	caption .cap-link { float: right; padding: 1px 3px; border: 1px solid #bbb; background: #eee; font-size: 15px; }
 table a:link { color: #666; border-bottom: 1px dotted #dedede; }
 table a:visited { color: #777; }
@@ -276,8 +276,8 @@ span.on { color: #57b054; }
 
 /* Under the Table and Pagination Styling */
 div.under-table { margin: 8px 3px 0; color: #444; }
-.num-rows { float: left; font-size: 15px; font-family: "Times New Roman", Times, serif; }
-.pages { float: right; font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif; }
+.num-rows { float: left; font-size: 15px; font-family: "Trebuchet MS", Helvetica, sans-serif; }
+.pages { float: right; font-size: 12px; font-family: Georgia, "Trebuchet MS", Helvetica, sans-serif; }
 	.page { padding: 3px; background: #fcfcfc; border: 1px solid #ddd; }
 		.page:hover { border-color: #bbb; text-decoration: none; color: #000;}
 		.current { color: #FF3333 !important; }
@@ -306,7 +306,7 @@ div.under-table { margin: 8px 3px 0; color: #444; }
 #result {
 	height:20px;
 	font-size:16px;
-	font-family:Arial, Helvetica, sans-serif;
+	font-family:Georgia, "Trebuchet MS", Helvetica, sans-serif;
 	color:#333;
 	padding:5px;
 	margin-bottom:10px;

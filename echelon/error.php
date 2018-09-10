@@ -8,12 +8,8 @@ require 'inc.php';
 
 require 'inc/header.php';
 ?>
-
-<h1>Echelon Error!</h1>
 	
-	<img src="images/error.jpg" alt="Error!" class="float-left" />
-	
-	<div class="error-msg error">
+	<div class="col-md-6 error-msg error my-3 mx-auto">
 	<?php 
 		if($_GET['t'] == 'locked') {
 			echo '<h3>Locked Out!</h3><p>You have been locked out of Echelon for repeated hacking attempts. 

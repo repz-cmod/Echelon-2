@@ -92,49 +92,25 @@ require 'inc/header.php';
 if(!$db->error) :
 ?>
 
-<fieldset class="search">
-	<legend>Client Search</legend>
-	<form action="clients.php" method="get" id="c-search">
-	
-		<img src="images/indicator.gif" alt="Loading...." title="We are searching for posible matches, please wait" id="c-s-load" />
-	
-		<input type="text" autocomplete="off" name="s" id="search" onkeyup="suggest(this.value);" onBlur="fill();" value="<?php echo $search_string; ?>" />
-		
-		<div class="suggestionsBox" id="suggestions" style="display: none;">
-			<div class="suggestionList" id="suggestionsList">&nbsp;</div>
-		</div>
-		
-		<select name="t">
-			<option value="all" <?php if($search_type == "all") echo 'selected="selected"' ?>>All Records</option>
-			<option value="alias" <?php if($search_type == "alias") echo 'selected="selected"' ?>>Name</option>
-			<option value="pbid" <?php if($search_type == "pbid") echo 'selected="selected"' ?>>PBID</option>
-			<option value="ip" <?php if($search_type == "ip") echo 'selected="selected"' ?>>IP Address</option>
-			<option value="id" <?php if($search_type == "id") echo 'selected="selected"' ?>>Player ID</option>
-		</select>
-		
-		<input type="submit" id="sub-search" value="Search" />
-	</form>
-</fieldset>
-
-<table summary="A list of <?php echo limit_rows; ?> players who have connected to the server at one time or another.">
-	<caption>Client Listings
-		<small>
-			<?php
+<div class="container my-2">
+<div class="card">
+<div class="card-header">
+    <h5 class="my-auto">Client Listings</h5>
+    			<?php
 			if($search_type == "all")
-				echo 'You are searching all clients that match <strong>'.$search_string.'</strong> there are <strong>'. $total_rows .'</strong>.';
+				echo 'You are searching all clients that match <strong>'.$search_string.'</strong>. There are <strong>'. $total_rows .'</strong> entries matching your request.';
 			elseif($search_type == 'alias')
-				echo 'You are searching all clients names for <strong>'.$search_string.'</strong> there are <strong>'. $total_rows .'</strong>.';
+				echo 'You are searching all clients names for <strong>'.$search_string.'</strong>. There are <strong>'. $total_rows .'</strong> entries matching your request.';
 			elseif($search_type == 'pbid')
-				echo 'You are searching all clients Punkbuster Guids for <strong>'.$search_string.'</strong> there are <strong>'. $total_rows .'</strong>.';
+				echo 'You are searching all clients Punkbuster Guids for <strong>'.$search_string.'</strong>. There are <strong>'. $total_rows .'</strong> entries matching your request.';
 			elseif($search_type == 'id')
-				echo 'You are searching all clients B3 IDs for <strong>'.$search_string.'</strong> there are <strong>'. $total_rows .'</strong>.';
+				echo 'You are searching all clients B3 IDs for <strong>'.$search_string.'</strong>. There are <strong>'. $total_rows .'</strong> entries matching your request.';
 			elseif($search_type == 'ip')
-				echo 'You are searching all clients IP addresses for <strong>'.$search_string.'</strong> there are <strong>'. $total_rows .'</strong>.';
-			else
-				echo 'A list of all players who have ever connected to the server.';
+				echo 'You are searching all clients IP addresses for <strong>'.$search_string.'</strong>. There are <strong>'. $total_rows .'</strong> entries matching your request.';
 			?>
-		</small>
-	</caption>
+</div>
+    <div class="card-body table table-hover table-sm table-responsive">
+    <table width="100%">
 	<thead>
 		<tr>
 			<th>Name
@@ -209,6 +185,7 @@ EOD;
 	?>
 	</tbody>
 </table>
+</div></div></div>
 
 <?php
 	else:

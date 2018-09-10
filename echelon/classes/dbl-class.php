@@ -318,7 +318,7 @@ class DbL {
 	}
 	
 	function getServers($cur_game) {
-		$query = "SELECT SQL_CACHE id, name, ip, pb_active, rcon_pass, rcon_ip, rcon_port FROM ech_servers WHERE game = ?";
+		$query = "SELECT id, name, ip, pb_active, rcon_pass, rcon_ip, rcon_port FROM ech_servers WHERE game = ?";
 		$stmt = $this->mysql->prepare($query) or die('Database Error');
 		$stmt->bind_param('i', $cur_game);
 		$stmt->execute();
@@ -714,7 +714,7 @@ class DbL {
 		$expires = $time+$limit_seconds;
 		$query = "SELECT k.reg_key, k.email, k.comment, k.time_add, k.admin_id, u.display 
 				  FROM ech_user_keys k LEFT JOIN ech_users u ON k.admin_id = u.id
-				  WHERE k.active = 1  AND k.time_add < ? AND comment != 'PW' ORDER BY time_add ASC";
+				  WHERE k.active = 1 AND comment != 'PW' ORDER BY time_add ASC";
 
 		$reg_keys = $this->query($query);
 		
