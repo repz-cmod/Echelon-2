@@ -190,7 +190,7 @@ class DbL {
 	 * @return array
 	 */
 	function getSettings() {
-        $query = "SELECT SQL_CACHE name, value FROM ech_config";
+        $query = "SELECT name, value FROM ech_config";
         $stmt = $this->mysql->prepare($query) or die('Database Error');
 		$stmt->execute();
 		
@@ -210,7 +210,7 @@ class DbL {
 	
 	function getGameInfo($game) {
 	
-		$query = "SELECT SQL_CACHE id, game, name, name_short, num_srvs, db_host, db_user, db_pw, db_name, plugins FROM ech_games WHERE id = ?";
+		$query = "SELECT id, game, name, name_short, num_srvs, db_host, db_user, db_pw, db_name, plugins FROM ech_games WHERE id = ?";
 		$stmt = $this->mysql->prepare($query) or die('Database Error');
 		$stmt->bind_param('i', $game);
 		$stmt->execute();
@@ -482,7 +482,7 @@ class DbL {
 	}
 	
 	function getGamesList() {
-		$query = "SELECT SQL_CACHE id, name, name_short FROM ech_games ORDER BY id ASC";
+		$query = "SELECT id, name, name_short FROM ech_games ORDER BY id ASC";
 		$results = $this->mysql->query($query) or die('Database error');
 		
 		while($row = $results->fetch_object()) :	

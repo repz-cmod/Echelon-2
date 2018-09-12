@@ -308,6 +308,27 @@ class DB_B3 {
 	
 		return $pbid;
 	}
+    
+    /**
+	 * Get the guid of the client from a penalty id, similar to pbid
+	 *
+	 * @param string $pen_id - id of penalty to search with
+	 * @return string - pbid of the client
+	 */
+    function getGUIDfromPID($pen_id) {
+		$query = "SELECT c.guid FROM penalties p LEFT JOIN clients c ON p.client_id = c.id WHERE p.id = ? LIMIT 1";
+		$stmt = $this->mysql->prepare($query);
+		$stmt->bind_param('i', $pen_id);
+		$stmt->execute();
+		
+		$stmt->store_result();
+		$stmt->bind_result($guid);
+		$stmt->fetch();
+		$stmt->free_result();
+		$stmt->close();
+	
+		return $guid;
+	}
 
 #############################
 #############################

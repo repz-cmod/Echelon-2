@@ -4,8 +4,8 @@ $b3_conn = true; // this page needs to connect to the B3 database
 require '../../inc.php';
 
 if(!$_POST['ban-sub']) { // if the form not is submitted
+    send('../../index.php');
 	set_error('Please do not call that ban page directly, thank you.');
-	send('../../index.php');
 }
 
 ## check that the sent form token is corret
@@ -72,17 +72,38 @@ if($is_pb_ban == true) :
 			$c_ip = trim($c_ip);
 		
 			// PB_SV_BanGuid [guid] [player_name] [IP_Address] [reason]
-			#$command = "pb_sv_banguid " . $pbid . " " . $c_name . " " . $c_ip . " " . $reason;
-			$command = "drop " . $c_name;
+			$command = "pb_sv_banguid " . $pbid . " " . $c_name . " " . $c_ip . " " . $reason;
             rcon($rcon_ip, $rcon_port, $rcon_pass, $command); // send the ban command
-			#sleep(1); // sleep for 1 sec in ordere to the give server some time
-			#$command_upd = "pb_sv_updbanfile"; // we need to update the ban files
-			#rcon($rcon_ip, $rcon_port, $rcon_pass, $command_upd); // send the ban file update command
+			sleep(1); // sleep for 1 sec in ordere to the give server some time
+			$command_upd = "pb_sv_updbanfile"; // we need to update the ban files
+			rcon($rcon_ip, $rcon_port, $rcon_pass, $command_upd); // send the ban file update command
 		endif;
 
 		$i++;
 	endwhile;
-endif; // end if a $is_pb_ban == true
+endif;
+
+try {
+    $i = 1;
+    while($i <= $game_num_srvs) :
+        // not bulletproof, get client-id from "status" and kick using that instead of name. 
+        // thanks androiderpwnz ;)
+        $rcon_pass = $config['game']['servers'][$i]['rcon_pass'];
+        $rcon_ip = $config['game']['servers'][$i]['rcon_ip'];
+        $rcon_port = $config['game']['servers'][$i]['rcon_port'];
+        
+        $command = "drop " . $c_name. " ".$reason;
+        rcon($rcon_ip, $rcon_port, $rcon_pass, $command); // send the ban command
+
+        $i++;
+    endwhile;
+}
+
+//catch exception
+catch(Exception $e) {
+  sendBack($e);
+}
+
 
 if($result)
 	sendGood('Ban has been added to the database.');
