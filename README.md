@@ -8,6 +8,7 @@ Echelon is a web investigation tool for B3 administrators to study detailed stat
 ## [2.1] - 10-09-2018
 ### Added
 - IP-Aliases Feature
+- RCON Live Kick (Player will get kicked from servers, if banned on Echelon)
 
 ### Changed
 - Fixed a lot of bugs
@@ -15,7 +16,7 @@ Echelon is a web investigation tool for B3 administrators to study detailed stat
 
 
 ## Echelon Development v2 ##
-All the files are copyrighted by WatchMiltan,Eire.32 (eire32designs.com) and Bigbrotherbot (bigbrotherbot.com)
+All the files are copyrighted by WatchMiltan, Eire.32 (eire32designs.com) and Bigbrotherbot (bigbrotherbot.com)
 
 ## Requirements ##
 - Webserver (Aphace currently, other support coming soon)
