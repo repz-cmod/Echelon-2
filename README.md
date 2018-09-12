@@ -1,14 +1,19 @@
-# ![BigBrotherBot](http://i.imgur.com/7sljo4G.png) Echelon 2 Beta (v2.1)
+# ![BigBrotherBot](http://i.imgur.com/7sljo4G.png) Echelon 2 Beta (v2.2)
 
 NOTE: E-Mail feature is mostly disabled
 
 Echelon is a web investigation tool for B3 administrators to study detailed statistics and other helpful information: about the B3 bot; game server clients; and admins. Echelon v.2 is not all about just inspecting information, it is also about interacting with the B3 bot; the gameserver; and the B3 MySQL database.
 
 # Changelog
+## [2.2] - 12-09-2018
+### Added
+- ported Alias Table Search from Echelon v1 and added IP-Alias Table Search (only working when explicitly selected in search-dropdown)
+- RCON Live Kick (Player will get kicked from servers, if banned on Echelon)
+
+
 ## [2.1] - 10-09-2018
 ### Added
 - IP-Aliases Feature
-- RCON Live Kick (Player will get kicked from servers, if banned on Echelon)
 
 ### Changed
 - Fixed a lot of bugs
