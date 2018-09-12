@@ -7,19 +7,19 @@ if($query_normal && (!$db_error)) :
 	$data_set = $results['data']; // seperate out the return data set
 endif;
 
-## Pagination for pages with tables ##
+## Pagination for pages with tables ## 
 if($pagination == true && (!$db_error)) : // if pagination is needed on the page
 	## Find total rows ##
 	$total_num_rows = $db->query($query, false); // do not fetch the data
 	$total_rows = $total_num_rows['num_rows'];
-
+	
 		$query_string_page = queryStringPage();
-
+	
 	// create query_string
 	if($total_rows > 0) {
 
 		$total_pages = totalPages($total_rows, $limit_rows);
-
+		
 		if($page_no > $total_pages) {
 			$db->error = true;
 			$db->error_msg = 'That page does not exists, please select a real page.';
@@ -39,16 +39,16 @@ endif;
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
+    
 	<!-- Load CSS Stylesheet -->
 	<link href="<?php echo PATH; ?>css/stylesheet.min.css" rel="stylesheet">
-
+    
     <title><?php echo $site_name; ?> Echelon - <?php echo $page_title; ?></title>
 	<!-- favicon -->
 	<link rel="shortcut icon" href="favicon.ico" >
-
-	<?php
-
+	    
+	<?php 
+		
 	// return any plugin CSS files
 	if(!$no_plugins_active)
 		$plugins->getCSS();
@@ -61,7 +61,7 @@ endif;
 
 <div id="page-wrap">
 
-
+	
 <div id="mc">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -72,15 +72,21 @@ endif;
               <span class="navbar-toggler-icon"></span>
         </button>
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-		<?php if($mem->loggedIn()) { if(!$no_games) : ?>
-
+        
         <ul class="navbar-nav">
-          <li class="nav-item dropdown">
+            <li class="nav-item  my-auto">
+                <a class="nav-link text-uppercase disabled" href="#">Serverstatus</a>
+            </li>
+        </ul>
+        
+		<?php if($mem->loggedIn()) { if(!$no_games) : ?>
+        
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">        
 			<a class="nav-link dropdown text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Games</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 				<?php
-					$this_cur_page = basename($_SERVER['SCRIPT_NAME']);
+					$this_cur_page = basename($_SERVER['SCRIPT_NAME']);						
 					$games_list = $dbl->getGamesList();
 					$i = 0;
 					$count = count($games_list);
@@ -92,14 +98,14 @@ endif;
 						#else
 						#	echo ''; eine zeile drunter fehlt am ende noch ein li tag
 						echo '<a class="dropdown-item" href="'.PATH . $this_cur_page .'?game='.$games_list[$i]['id'].'" title="Switch to this game">'.$games_list[$i]['name'].'</a>';
-
+						
 						$i++;
 					endwhile;
-				?>
+				?>	
             </div>
          </li>
-
-
+            
+        
 		<?php if($mem->reqLevel('clients')) : ?>
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clients</a>
@@ -113,7 +119,7 @@ endif;
 		</li>
 		<?php
 			endif; // reqLevel clients DD
-
+			
 			if($mem->reqLevel('penalties')) :
 		?>
 		<li class="nav-item dropdown">
@@ -128,14 +134,14 @@ endif;
 		<?php
 			endif; // end reqLevel penalties DD
 		?>
-
+		
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 				<a class="dropdown-item" href="<?php echo PATH; ?>notices.php" title="In-game Notices">Notices</a>
-                    <?php
+                    <?php 
                         if(!$no_plugins_active)
-                            $plugins->displayNav();
+                            $plugins->displayNav(); 
                     ?>
 			</div>
 		</li>
@@ -150,18 +156,18 @@ endif;
                     <a class="dropdown-item" href="<?php echo PATH; ?>settings.php">Site Settings</a>
 					<a class="dropdown-item" href="<?php echo PATH; ?>sa.php" title="Site Administration">Site Admin</a>
 					<a class="dropdown-item" href="<?php echo PATH; ?>sa.php?t=perms" title="User Permissions Management">Permissions</a>
-				<?php endif; ?>
+				<?php endif; ?>            
 				<?php if($mem->reqLevel('manage_settings')) : ?>
-                <div class="dropdown-header">ECHELON SETUP</div>
+                <div class="dropdown-header">ECHELON SETUP</div>         
                     <a class="dropdown-item" href="<?php echo PATH; ?>settings-games.php" title="Game Settings">Game Settings</a>
                     <a class="dropdown-item" href="<?php echo PATH; ?>settings-server.php" title="Server Settings">Server Settings</a>
 				<?php endif; ?>
-				<div class="dropdown-header">ACCOUNT SETTINGS</div>
+				<div class="dropdown-header">ACCOUNT SETTINGS</div>         
 				<a class="dropdown-item" href="<?php echo PATH; ?>me.php" title="Edit your account">My Account</a>
             </div>
         </li>
 
-		<?php } else { // if user has no permissions (e.g. visitor or group without any permisions ?>
+		<?php } else { // if user has no permissions (e.g. visitor or group without any permisions ?> 
         <ul class="navbar-nav">
             <li class="nav-item  my-auto">
                 <a class="nav-link text-uppercase" href="<?php echo PATH; ?>pubbans.php" title="Public Ban List">Public Ban List</a>
@@ -175,13 +181,13 @@ endif;
 		<?php } ?>
 
     </ul>
-
+  
 <!-- end #navbar , now user info stuff-->
 
-
-        <?php if($mem->loggedIn()) { ?>
+    
+        <?php if($mem->loggedIn()) { ?>	
             <ul class="navbar-nav ml-auto">
-
+            
             <form class="form-inline" action="https://www.tsgservers.tk/echelon-v2/clients.php" method="get" id="c-search">
 <div class="loader" id="c-s-load"></div>
 <div class="input-group input-group-sm mx-4">
@@ -191,12 +197,15 @@ endif;
 			<option value="pbid" <?php if($search_type == "pbid") echo 'selected="selected"' ?>>PBID</option>
 			<option value="ip" <?php if($search_type == "ip") echo 'selected="selected"' ?>>IP Address</option>
 			<option value="id" <?php if($search_type == "id") echo 'selected="selected"' ?>>Player ID</option>
+            <option>===========</option>
+            <option value="ipaliastable" <?php if($search_type == "ipaliastable") echo 'selected="selected"' ?>>IP-Alias</option>
+            <option value="aliastable" <?php if($search_type == "aliastable") echo 'selected="selected"' ?>>Alias</option>
 		</select>
-
+        
 		<div class="form-control suggestionsBox" id="suggestions" style="display: none;">
 			<div class="suggestionList" id="suggestionsList">&nbsp;</div>
-		</div>
-
+		</div>        
+        
   <input class="form-control" type="text" autocomplete="off" name="s" id="search" onkeyup="suggest(this.value);" onblur="fill();" value="">
   <div class="input-group-append">
                 <button class="btn btn-outline-secondary" id="sub-search" value="Search" type="submit">
@@ -205,31 +214,31 @@ endif;
   </div>
 </div>
 </form>
-
-
+            
+           
     <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php if($mem->loggedIn()){ $mem->displayName();} ?></a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">		
             <a class="dropdown-item" href="<?php echo PATH; ?>actions/logout.php" class="logout" title="Sign out">Sign Out</a>
             </div>
             	</li>
         </ul>
 
-        <?php } ?>
-
-</div>
-</nav>
-
-
+        <?php } ?>        
+    
+</div>			
+</nav>	    
+    
+    
 </div><!-- end #menu -->
 <div id="container"> <!-- QUALITY CONTENT -->
 
-	<?php
+	<?php 
 
 	## if Site Admin check for current Echelon Version and if not equal add warning
 	if($mem->reqLevel('see_update_msg')) :
 		$day_of_week = date('N');
-
+	
 		if( (isSA() || isHome()) && ($day_of_week == 1) ) {
 			$latest = getEchVer();
 			if(ECH_VER !== $latest && $latest != false) // if current version does not equal latest version show warning message
@@ -240,7 +249,7 @@ endif;
 	errors(); // echo out all errors/success/warnings
 
 	if($query_normal) : // if this is a normal query page and there is a db error show message
-
+	
 		if($db->error)
 			dbErrorShow($db->error_msg); // show db error
 
