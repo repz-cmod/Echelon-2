@@ -1,4 +1,4 @@
-# ![BigBrotherBot](http://i.imgur.com/7sljo4G.png) Echelon BS4 beta (v2.1)
+# ![BigBrotherBot](http://i.imgur.com/7sljo4G.png) Echelon 2 Beta (v2.1)
 
 NOTE: E-Mail feature is mostly disabled
 
@@ -11,7 +11,7 @@ Echelon is a web investigation tool for B3 administrators to study detailed stat
 
 ### Changed
 - Fixed a lot of bugs
-- removed old design and replaced with Bootstrap
+- removed old design and replaced with Bootstrap 4
 
 
 ## Echelon Development v2 ##
