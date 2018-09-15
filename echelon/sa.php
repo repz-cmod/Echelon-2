@@ -123,41 +123,51 @@ require 'inc/header.php';
 
 if($is_edit_user) : 
 
-	echo echUserLink($uid, $u_display, null, '&laquo; Go Back');
+	#echo echUserLink($uid, $u_display, null, '&laquo; Go Back');
 ?>
-
-	<fieldset>
-		<legend>Edit <?php echo $u_display; ?></legend>
-		
+<div class="container my-2">
+<div class="card card-signin my-2">
+<h5 class="card-header">Edit <?php echo $u_display; ?></h5>
+<div class="card-body">
+	
 		<form action="actions/user-edit.php" method="post">
-			
-			<label for="display">Display Name:</label>
-				<input type="text"  name="display" id="display" value="<?php echo $u_display; ?>" /><br />
-			
-			<label for="username">Username:</label>
-				<input type="text" name="username" id="username" value="<?php echo $u_username; ?>" /><br />
-				
-			<label for="email">Email Address:</label>
-				<input type="text" name="email" id="email" value="<?php echo $u_email; ?>" /><br />
-				
-			<label for="group">Group</label>
-				<select name="group" id="group">
+			<div class="col justify-center">
+            <div class="form-group row">
+			<label class="col-sm-4 col-form-label" for="display">Display Name:</label>
+				<div class="col-sm-8"><input type="text" class="form-control" name="display" id="display" value="<?php echo $u_display; ?>"></div>
+			</div>
+            <div class="form-group row">
+			<label class="col-sm-4 col-form-label" for="username">Username:</label>
+				<div class="col-sm-8"><input class="form-control" type="text" name="username" id="username" value="<?php echo $u_username; ?>"></div>
+            </div>
+            <div class="form-group row">
+			<label class="col-sm-4 col-form-label" for="email">Email Address:</label>
+				<div class="col-sm-8"><input class="form-control" type="text" name="email" id="email" value="<?php echo $u_email; ?>"></div>
+            </div>
+            <div class="form-group row">
+			<label class="col-sm-4 col-form-label" for="group">Group</label>
+            <div class="col-sm-8">
+				<select class="form-control" name="group" id="group">
 					<?php foreach($ech_groups as $group) :
 						if($group['id'] == $u_group_id)
 							echo '<option value="'.$group['id'].'" selected="selected">'.$group['display'].'</option>';
 						else
 							echo '<option value="'.$group['id'].'">'.$group['display'].'</option>';
 					endforeach; ?>
-				</select><br />
-			
+				</select>
+			</div>
+            </div>
+            </div>
 			<input type="hidden" name="token" value="<?php echo $ad_edit_user_token; ?>" />
 			<input type="hidden" name="id" value="<?php echo $uid; ?>" />
 				
-			<input type="submit" name="ad-edit-user" value="Edit <?php echo $u_display; ?>" />
+			<button class="btn btn-primary float-right" type="submit" name="ad-edit-user" value="Edit <?php echo $u_display; ?>">Save Settings</button>
 			
 		</form>
-		
-	</fieldset>
+		</div>
+    </div>
+</div>
+	
 
 <?php elseif($is_view_user) : ?>
 	
