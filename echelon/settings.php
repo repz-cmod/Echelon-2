@@ -42,8 +42,8 @@ require 'inc/header.php';
         <h6 class="my-4">E-Mail Messages and Announcements on Homepage</h6>
         <div class="col justify-center">
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label" for="name">Annoucements</label>
-                    <div class="col-sm-8"><textarea class="form-control" rows="4" name="email_header"><?php echo $settings['newsfeed']; ?></textarea></div>
+                <label class="col-sm-4 col-form-label" for="newsfeed">Annoucements</label>
+                    <div class="col-sm-8"><textarea class="form-control" rows="4" name="newsfeed"><?php echo $settings['newsfeed']; ?></textarea></div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="email_header">Text to start all emails:</label>
@@ -149,7 +149,7 @@ require 'inc/header.php';
             </div>  
 		
 		<input type="hidden" name="token" value="<?php echo $token_settings; ?>" />
-		<button class="btn btn-primary float-right" type="submit" name="settings-sub">Save Settings</button>
+		<button class="btn btn-primary float-right" type="submit" value="Save Echelon Settings" name="settings-sub">Save Settings</button>
 		
 	</form>
 </div></div></div>
