@@ -127,7 +127,7 @@ endif;
 			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 				<a class="dropdown-item" href="<?php echo PATH; ?>adminkicks.php">Admin Kicks</a>
 				<a class="dropdown-item" href="<?php echo PATH; ?>bans.php?ob=time_add&o=DESC&t=a">Admin Bans</a>
-				<a class="dropdown-item" href="<?php echo PATH; ?>bans.php?ob=time_add&o=DESC&t=b" title="All Kicks/Bans added automatically by B3">B3 Bans</a>
+				<a class="dropdown-item" href="<?php echo PATH; ?>bans.php?ob=time_add&o=DESC&t=b" title="All Kicks/Bans added automatically by B3">B3 Bans & Kicks</a>
 				<a class="dropdown-item" href="<?php echo PATH; ?>pubbans.php" title="A public list of bans in the database">Public Ban List</a>
 			</div>
 		</li>
