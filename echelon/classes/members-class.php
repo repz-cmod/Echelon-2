@@ -131,32 +131,6 @@ function lastSeen($time_format = 'd M y') {
 		return NULL;
 }
 
-/**
- * Gets a users gravatar from gravatar.com
- *
- * @param string $email - email address of the current user
- * @return string
- */
-function getGravatar($email) {
-	$size = 32;
-
-	$https = detectSSL();
-	
-	if($https) {
-		$grav_url = "https://secure.gravatar.com/avatar.php?
-		gravatar_id=".md5( strtolower($email) );
-	} else {
-		$grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( $email ) );
-	}
-	
-	$gravatar = '<span class="gravatar">
-			<a href="http://gravatar.com/" target="_blank" title="Get your own personalised image">
-				<img width="32" src="'.$grav_url.'" alt="" />
-			</a>
-		</span>';
-	
-	return $gravatar;
-}
 
 /**
  * Using a user's password this func sees if the user inputed the right password for action verification
