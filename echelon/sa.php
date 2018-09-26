@@ -374,20 +374,22 @@ EOD;
 	
 <?php elseif($is_perms_group_add) : ?>
 	
-	<fieldset>
-	
-	<legend>Add Echelon Group</legend>
+<div class="col-lg-11 mx-auto my-2">
+<div class="card my-2">
+<h5 class="card-header">Add Echelon Group</h5>
+<div class="card-body">	
 	
 	<form action="actions/perms-edit.php?t=add" method="post">
-	
-		<label for="g-name">Name of Group:</label>
-			<input type="text" name="g-name" id="g-name" />
-		
+	<div class="form-group row">
+		<label class="col-sm-4 col-form-label" for="g-name">Name of Group</label>
+        <div class="col-sm-8">
+			<input class="form-control" type="text" name="g-name" id="g-name" />
+		</div></div>
 		<fieldset class="none" id="perms-fs">
 		
-		<legend>Group Permissions</legend> 
+		<h6 class="my-2">Group Permissions</h6>
 		
-		<table id="perms">
+		<table id="perms" width="100%">
 		<tbody>
 		<?php
 		
@@ -416,7 +418,7 @@ EOD;
 					$p_name_read = ucwords($p_name_read);
 					
 					if($p_id != "") :
-						echo '<td class="perm-td"><label for="'. $p_name .'">' . $p_name_read . '</label><input id="'.$p_name.'" type="checkbox" name="' . $p_name . '" />'; 
+                        echo '<td class="perm-td"><label class="col-sm-8 my-2" for="'. $p_name .'">' . $p_name_read . '</label><div class="col"><label class="switch" for="'. $p_name .'"><input id="'.$p_name.'" type="checkbox" name="' . $p_name . '"/><span class="slider round"></span></label></div>'; 
 						tooltip($p_desc);
 						echo '</td>';						
 					endif;
@@ -440,11 +442,12 @@ EOD;
 		
 		<br />
 		<input type="hidden" name="token" value="<?php echo $add_g_token; ?>" />
-		<input type="submit" value="Add Group" />
+        <button class="btn btn-primary float-right" type="submit" value="Add Group">Add Group</button>
 	
 	</form>
-	
-	</fieldset>
+	</div>
+</div>
+</div>	
 	
 <?php else : ?>
 <div class="container">
