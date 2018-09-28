@@ -183,7 +183,7 @@ INSERT INTO `ech_config` VALUES ('13', 'email_footer', 'Thanks, the %ech_name% E
 INSERT INTO `ech_config` VALUES ('14', 'pw_req_level', '1');
 INSERT INTO `ech_config` VALUES ('15', 'pw_req_level_group', '64');
 INSERT INTO `ech_config` VALUES ('16', 'reg_clan_tags', '=(e)=,=(eG)=,=(eGO)=,{KGB}');
-INSERT INTO `ech_config` VALUES ('17', 'Newsfeed', 'Echelon has been updated. Please report errors at https://github.com/miltann/Echelon-2.  -WatchMiltan');
+INSERT INTO `ech_config` VALUES ('17', 'newsfeed', 'Echelon has been updated. Please report errors at https://github.com/miltann/Echelon-2.  -WatchMiltan');
 INSERT INTO `ech_groups` VALUES ('1', 'visitor', 'Visitor', '1,2,4,5');
 INSERT INTO `ech_groups` VALUES ('2', 'siteadmin', 'Site Admin', '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27');
 INSERT INTO `ech_groups` VALUES ('3', 'senioradmin', 'Senior Admin', '1,2,3,4,5,8,12,14,16,17,20,21,22,23,24');
