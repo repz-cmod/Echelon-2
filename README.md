@@ -4,6 +4,10 @@ NOTE: E-Mail feature is mostly disabled
 
 Echelon is a web investigation tool for B3 administrators to study detailed statistics and other helpful information: about the B3 bot; game server clients; and admins. Echelon v.2 is not all about just inspecting information, it is also about interacting with the B3 bot; the gameserver; and the B3 MySQL database.
 
+![Screenshot1](https://i.gyazo.com/79d9649bd3c2e6944cad3f332c8ea0cd.png)
+![Screenshot1](https://i.gyazo.com/09150cd6fe48886237e06c2635a3a3c0.png)
+
+
 # Changelog
 ## [2.2] - 12-09-2018
 ### Added
