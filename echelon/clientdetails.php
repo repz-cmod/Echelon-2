@@ -148,6 +148,9 @@ require 'inc/header.php';
         <div class="tab-pane fade show active" id="bansection" role="tabpanel" aria-labelledby="bansection-tab">
 		<div class="col justify-center"> 
 			<form action="actions/b3/ban.php" method="post">
+                <?php
+                if($mem->reqLevel('permban')) :
+                ?>
                 <div class="form-row my-1">                                
                             <label class="col-sm-4" for="pb">Permanent Ban?</label>                    
                             <div class="col">
@@ -157,6 +160,9 @@ require 'inc/header.php';
                                 </label>
                             </div>
                 </div>
+                <?php
+                    endif; // end hide ban section to non authed
+                ?>
                 
                 <div class="form-row" id="ban-duration">
                 <label class="col-form-label col-sm-4" for="duration">Duration</label>
@@ -262,7 +268,7 @@ require 'inc/header.php';
 				<input type="hidden" name="old-level" value="<?php echo $group_bits; ?>" />
 				<input type="hidden" name="cid" value="<?php echo $cid; ?>" />
 				<input type="hidden" name="token" value="<?php echo $mask_lvl_token; ?>" />
-				<button class="btn btn-primary float-right" type="submit" name="mlevel-sub" value="Change Mask">Set masked level</button>
+				<button class="btn btn-primary float-right my-1" type="submit" name="mlevel-sub" value="Change Mask">Set masked level</button>
 			</form>
 		</div>
         </div>
@@ -283,7 +289,7 @@ require 'inc/header.php';
                 </div>	
 				<input type="hidden" name="token" value="<?php echo $greeting_token; ?>" />
 				<input type="hidden" name="cid" value="<?php echo $cid; ?>" />
-				<button class="btn btn-primary float-right" type="submit" name="greeting-sub">Set Greeting</button>
+				<button class="btn btn-primary float-right my-1" type="submit" name="greeting-sub" value="Edit Greeting">Set Greeting</button>
 			</form>
 		</div>
         </div>
@@ -303,7 +309,7 @@ require 'inc/header.php';
                     </div>
                     <input type="hidden" name="token" value="<?php echo $comment_token; ?>" />
                     <input type="hidden" name="cid" value="<?php echo $cid; ?>" />
-                    <button class="btn btn-primary float-right" type="submit" name="comment-sub">Add Comment</button>
+                    <button class="btn btn-primary float-right my-1" type="submit" name="comment-sub">Add Comment</button>
                 </form>
             </div>
         </div>

@@ -239,10 +239,9 @@ if($is_edit_user) :
 	
 <div class="col-lg-11 mx-auto my-2">
 <div class="card my-2">
-<div class="card-header">
-<h5 class="my-auto">Echelon Groups</h5>
-<a href="sa.php?t=perms-add" title="Add a new Echelon group">Add Group &raquo;</a>
-</div>
+<h5 class="card-header">Echelon Groups
+<small><a href="sa.php?t=perms-add" title="Add a new Echelon group" class="my-auto float-sm-right">Add Group &raquo;</a></small>
+</h5>
 <div class="card-body table table-hover table-sm table-responsive">
 
 <table width="100%">
@@ -445,9 +444,7 @@ EOD;
         <button class="btn btn-primary float-right" type="submit" value="Add Group">Add Group</button>
 	
 	</form>
-	</div>
-</div>
-</div>	
+</div></div></div>	
 	
 <?php else : ?>
 <div class="container">
@@ -684,14 +681,14 @@ EOD;
 					$actions = '<form action="actions/blacklist.php" method="post">
 						<input type="hidden" name="id" value="'.$id.'" />
 						<input type="hidden" name="token" value="'.$token.'" />
-						<input type="submit" name="deact" value="De-active" class="action del" title="De-active this ban" />
+                        <button type="submit" name="deact" value="De-active" class="btn btn-warning btn-sm">De-Activate</button>
 						</form>';
 				} else {
 					$active = 'No';
 					$actions = '<form action="actions/blacklist.php" method="post">
 						<input type="hidden" name="id" value="'.$id.'" />
 						<input type="hidden" name="token" value="'.$token.'" />
-						<input type="submit" name="react" value="Re-active" class="action plus" title="Re-active this ban" />
+                        <button type="submit" name="react" value="Re-active" class="btn btn-info btn-sm">Re-Activate</button>
 						</form>';
 				}
 				

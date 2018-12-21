@@ -25,7 +25,7 @@ require 'inc.php';
 
 ## Default Vars ##
 $orderby = "time_add";
-$order = "ASC";
+$order = "DESC";
 
 ## Sorts requests vars ##
 if($_GET['ob'])
@@ -137,13 +137,15 @@ endif;
 				$duration_read = time_duration($duration*60); // all penalty durations are stored in minutes, so multiple by 60 in order to get seconds
 			else
 				$duration_read = '';
-		
+
 			if($type == 'Kick')
-				$time_expire_read = '(Kick Only)';
+				$time_expire_read = '(Kick Only)'; 
+            elseif ($type == 'Notice')
+                $time_expire_read = ''; 
 			else
 				$time_expire_read = timeExpirePen($time_expire);
-
-			$time_expire_read = timeExpirePen($time_expire);
+            
+			
 			$time_add_read = date($tformat, $time_add);
 			$reason_read = removeColorCode($reason);
 			

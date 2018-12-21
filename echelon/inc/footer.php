@@ -53,7 +53,7 @@ endif; // end if pagination is on
 <hr>
 <div class="row">
         <div class="col-md-6">
-            <p>&copy; <?php echo date("Y"); ?> Copyright WatchMiltan, Eire32 (Kevin Baker) &amp; Big Brother Bot</p>
+            <p>Developed by WatchMiltan, Eire32 (Kevin Baker) &amp; Big Brother Bot</p>
         </div>
         <div class="col-md-6">
             <p class="text-right">Echelon <small><?php echo ECH_VER; ?></p>

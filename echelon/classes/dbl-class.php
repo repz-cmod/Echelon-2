@@ -566,17 +566,17 @@ class DbL {
 	 */
 	function login($username, $pw) {
 
-		$query = "SELECT u.id, u.ip, u.last_seen, u.display, u.email, u.ech_group, g.premissions FROM ech_users u LEFT JOIN ech_groups g ON u.ech_group = g.id WHERE u.username = ? AND u.password = ? LIMIT 1";
+		$query = "SELECT u.id, u.ip, u.last_seen, u.display, u.email, u.ech_group, g.premissions, u.timezone FROM ech_users u LEFT JOIN ech_groups g ON u.ech_group = g.id WHERE u.username = ? AND u.password = ? LIMIT 1";
 		$stmt = $this->mysql->prepare($query) or die('Database Error');
 		$stmt->bind_param('ss', $username, $pw);
 		$stmt->execute(); // run query
 		
 		$stmt->store_result(); // store results	
-		$stmt->bind_result($id, $ip, $last_seen, $name, $email, $group, $perms); // store results
+		$stmt->bind_result($id, $ip, $last_seen, $name, $email, $group, $perms, $timezone); // store results
 		$stmt->fetch(); // get results
 
 		if($stmt->num_rows == 1):
-			$results = array($id, $ip, $last_seen, $name, $email, $group, $perms);
+			$results = array($id, $ip, $last_seen, $name, $email, $group, $perms, $timezone);
 			return $results; // yes log them in
 		else :
 			return false;
@@ -801,10 +801,10 @@ class DbL {
 	 * @param int $user_id - id of the user to update
 	 * @return bool
 	 */
-	function editMe($name, $email, $user_id) {
-		$query = "UPDATE ech_users SET display = ?, email = ? WHERE id = ? LIMIT 1";
+	function editMe($name, $email, $timezone, $user_id) {
+		$query = "UPDATE ech_users SET display = ?, email = ?, timezone = ? WHERE id = ? LIMIT 1";
 		$stmt = $this->mysql->prepare($query) or die('Database Error');
-		$stmt->bind_param('ssi', $name, $email, $user_id);
+		$stmt->bind_param('sssi', $name, $email, $timezone, $user_id);
 		$stmt->execute();
 		
 		if($stmt->affected_rows != 1) 
@@ -1008,12 +1008,13 @@ class DbL {
 	 * @param string $salt - salt string for the password
 	 * @param string $group - group for the user
 	 * @param string $admin_id - id of the admin who added the user key
+     * @param string $timezone - timezone support
 	 * @return bool
 	 */
 	function addUser($username, $display, $email, $password, $salt, $group, $admin_id) {
 		$time = time();
-		// id, username, display, email, password, salt, ip, group, admin_id, first_seen, last_seen
-		$query = "INSERT INTO ech_users VALUES(NULL, ?, ?, ?, ?, ?, NULL, ?, ?, ?, NULL)";
+		// id, username, display, email, password, salt, ip, group, admin_id, first_seen, last_seen, timezone
+		$query = "INSERT INTO ech_users VALUES(NULL, ?, ?, ?, ?, ?, NULL, ?, ?, ?, NULL, NULL)";
 		$stmt = $this->mysql->prepare($query) or die('Database Error');
 		$stmt->bind_param('sssssiii', $username, $display, $email, $password, $salt, $group, $admin_id, $time);
 		$stmt->execute();

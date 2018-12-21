@@ -95,7 +95,7 @@ if(!$db->error) :
 			<th>Name
 				<?php linkSort('name', 'Name'); ?>
 			</th>
-			<th>Client-id
+			<th>Client-ID
 				<?php linkSort('id', 'Client-id'); ?>
 			</th>
 			<th>Level
@@ -114,7 +114,7 @@ if(!$db->error) :
 	</thead>
 	<tfoot>
 		<tr>
-			<th colspan="6">Click client name to see details</th>
+			<th colspan="6">Click client name to see details.</th>
 		</tr>
 	</tfoot>
 	<tbody>

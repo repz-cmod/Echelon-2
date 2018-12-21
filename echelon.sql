@@ -157,6 +157,7 @@ CREATE TABLE `ech_users` (
   `admin_id` smallint(6) unsigned NOT NULL DEFAULT '0',
   `first_seen` int(24) DEFAULT NULL,
   `last_seen` int(24) DEFAULT NULL,
+  `timezone` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `password` (`password`),

@@ -27,6 +27,8 @@ if($pagination == true && (!$db_error)) : // if pagination is needed on the page
 	} else
 		$total_pages = 0;
 
+
+date_default_timezone_set($_SESSION['timezone']);
 endif;
 ?>
 <!doctype html>
@@ -38,7 +40,7 @@ endif;
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     
 	<!-- Load CSS Stylesheet -->
 	<link href="<?php echo PATH; ?>css/stylesheet.min.css" rel="stylesheet">
@@ -72,16 +74,17 @@ endif;
               <span class="navbar-toggler-icon"></span>
         </button>
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        
+<!--       
         <ul class="navbar-nav">
             <li class="nav-item  my-auto">
                 <a class="nav-link text-uppercase disabled" href="#">Serverstatus</a>
             </li>
         </ul>
+-->
+		<ul class="navbar-nav">
+        <?php if($mem->loggedIn()) { if(!$no_games) : ?>
         
-		<?php if($mem->loggedIn()) { if(!$no_games) : ?>
         
-        <ul class="navbar-nav">
           <li class="nav-item dropdown">        
 			<a class="nav-link dropdown text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Games</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -110,11 +113,11 @@ endif;
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clients</a>
 			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-				<a class="dropdown-item" href="<?php echo PATH; ?>clients.php?ob=time_edit&o=DESC" title="Clients Listing">Clients</a>
-				<a class="dropdown-item" href="<?php echo PATH; ?>active.php" title="In-active admins">In-active Admins</a>
-				<a class="dropdown-item" href="<?php echo PATH; ?>regular.php" title="Regular non admin visitors to your servers">Regular Visitors</a>
-				<a class="dropdown-item" href="<?php echo PATH; ?>admins.php" title="A list of all admins">Admin Listing</a>
-				<a class="dropdown-item disabled" href="<?php echo PATH; ?>map.php" title="Player map">World Player Map</a>
+				<a class="dropdown-item" href="<?php echo PATH; ?>clients.php" title="Clients Listing"><i class="fas fa-users mx-2"></i>Clients</a>
+				<a class="dropdown-item" href="<?php echo PATH; ?>regular.php" title="Regular non admin visitors to your servers"><i class="fas fa-user-friends mx-2"></i>Regular Visitors</a>
+				<a class="dropdown-item" href="<?php echo PATH; ?>admins.php" title="A list of all admins"><i class="fas fa-user-shield mx-2"></i>Admin Listing</a>
+                <a class="dropdown-item" href="<?php echo PATH; ?>active.php" title="In-active admins"><i class="fas fa-user-clock mx-2"></i>In-active Admins</a>
+				<a class="dropdown-item disabled" href="<?php echo PATH; ?>map.php" title="Player map"><i class="fas fa-globe-africa mx-2"></i>World Player Map</a>
 			</div>
 		</li>
 		<?php
@@ -125,56 +128,60 @@ endif;
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Penalties</a>
 			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-				<a class="dropdown-item" href="<?php echo PATH; ?>adminkicks.php">Admin Kicks</a>
-				<a class="dropdown-item" href="<?php echo PATH; ?>bans.php?ob=time_add&o=DESC&t=a">Admin Bans</a>
-				<a class="dropdown-item" href="<?php echo PATH; ?>bans.php?ob=time_add&o=DESC&t=b" title="All Kicks/Bans added automatically by B3">B3 Bans & Kicks</a>
-				<a class="dropdown-item" href="<?php echo PATH; ?>pubbans.php" title="A public list of bans in the database">Public Ban List</a>
+				<a class="dropdown-item" href="<?php echo PATH; ?>adminkicks.php"><i class="fas fa-user-times mx-2"></i>Admin Kicks</a>
+				<a class="dropdown-item" href="<?php echo PATH; ?>bans.php?t=a"><i class="fas fa-user-slash mx-2"></i>Admin Bans</a>
+				<a class="dropdown-item" href="<?php echo PATH; ?>bans.php?t=b" title="All Kicks/Bans added automatically by B3"><i class="fas fa-robot mx-2"></i>B3 Bans & Kicks</a>
+                <a class="dropdown-item" href="<?php echo PATH; ?>toppen.php"><i class="fas fa-sort-amount-up mx-2"></i>Toplist Penalties</a>
+				<a class="dropdown-item" href="<?php echo PATH; ?>pubbans.php" title="A public list of bans in the database"><i class="fas fa-book-open mx-2"></i>Public Ban List</a>
+                <a class="dropdown-item" href="<?php echo PATH; ?>notices.php" title="In-game Notices"><i class="fas fa-flag mx-2"></i>Notices</a>
 			</div>
 		</li>
 		<?php
 			endif; // end reqLevel penalties DD
-		?>
-		
-		<li class="nav-item dropdown">
-			<a class="nav-link dropdown text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-				<a class="dropdown-item" href="<?php echo PATH; ?>notices.php" title="In-game Notices">Notices</a>
-                    <?php 
-                        if(!$no_plugins_active)
-                            $plugins->displayNav(); 
-                    ?>
-			</div>
-		</li>
-
-		<?php endif; // end if no games hide the majority of the navigation ?>
-
+            endif; 
+        ?>
+        
+        
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
 			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 				<?php if($mem->reqLevel('siteadmin')) : ?>
                 <div class="dropdown-header">ECHELON SETTINGS</div>
-                    <a class="dropdown-item" href="<?php echo PATH; ?>settings.php">Site Settings</a>
-					<a class="dropdown-item" href="<?php echo PATH; ?>sa.php" title="Site Administration">Site Admin</a>
-					<a class="dropdown-item" href="<?php echo PATH; ?>sa.php?t=perms" title="User Permissions Management">Permissions</a>
+					<a class="dropdown-item" href="<?php echo PATH; ?>sa.php" title="Site Administration"><i class="fas fa-cogs mx-2"></i>Site Admin</a>
+                    <a class="dropdown-item" href="<?php echo PATH; ?>settings.php"><i class="fas fa-cog mx-2"></i>Site Settings</a>
+					<a class="dropdown-item" href="<?php echo PATH; ?>sa.php?t=perms" title="User Permissions Management"><i class="fas fa-users-cog mx-2"></i>Permissions</a>
 				<?php endif; ?>            
 				<?php if($mem->reqLevel('manage_settings')) : ?>
-                <div class="dropdown-header">ECHELON SETUP</div>         
-                    <a class="dropdown-item" href="<?php echo PATH; ?>settings-games.php" title="Game Settings">Game Settings</a>
-                    <a class="dropdown-item" href="<?php echo PATH; ?>settings-server.php" title="Server Settings">Server Settings</a>
+                <div class="dropdown-header">B3 GAME SETTINGS</div>         
+                    <a class="dropdown-item" href="<?php echo PATH; ?>settings-games.php" title="Game Settings"><i class="fas fa-gamepad mx-2"></i>Game Settings</a>
+                    <a class="dropdown-item" href="<?php echo PATH; ?>settings-server.php" title="Server Settings"><i class="fas fa-server mx-2"></i>Server Settings</a>
 				<?php endif; ?>
 				<div class="dropdown-header">ACCOUNT SETTINGS</div>         
-				<a class="dropdown-item" href="<?php echo PATH; ?>me.php" title="Edit your account">My Account</a>
+				<a class="dropdown-item" href="<?php echo PATH; ?>me.php" title="Edit your account"><i class="fas fa-user-circle mx-2"></i>My Account</a>
             </div>
         </li>
 
+        <?php if(!$no_plugins_active AND $plugins->NavExists()): ?>
+		
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <?php 
+                            $plugins->displayNav(); 
+                    ?>
+			</div>
+		</li>
+        <?php endif; // end if no games hide the majority of the navigation ?>
+
+
 		<?php } else { // if user has no permissions (e.g. visitor or group without any permisions ?> 
         <ul class="navbar-nav">
-            <li class="nav-item  my-auto">
+            <li class="nav-item">
                 <a class="nav-link text-uppercase" href="<?php echo PATH; ?>pubbans.php" title="Public Ban List">Public Ban List</a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item my-auto">
+        <ul class="navbar-nav">
+            <li class="nav-item">
                 <a class="nav-link text-uppercase" href="<?php echo PATH; ?>login.php" title="Login to Echelon">Login</a>
             </li>
         </ul>
@@ -188,7 +195,7 @@ endif;
         <?php if($mem->loggedIn()) { ?>	
             <ul class="navbar-nav ml-auto">
             
-            <form class="form-inline" action="https://www.tsgservers.tk/echelon-v2/clients.php" method="get" id="c-search">
+            <form class="form-inline" action="clients.php" method="get" id="c-search">
 <div class="loader" id="c-s-load"></div>
 <div class="input-group input-group-sm mx-4">
 		<select class="custom-select custom-select-sm col-md-5" name="t">
@@ -219,7 +226,7 @@ endif;
     <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php if($mem->loggedIn()){ $mem->displayName();} ?></a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">		
-            <a class="dropdown-item" href="<?php echo PATH; ?>actions/logout.php" class="logout" title="Sign out">Sign Out</a>
+            <a class="dropdown-item" href="<?php echo PATH; ?>actions/logout.php" class="logout" title="Sign out"><i class="fas fa-sign-out-alt mx-2"></i>Sign Out</a>
             </div>
             	</li>
         </ul>

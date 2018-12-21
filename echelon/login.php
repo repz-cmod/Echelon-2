@@ -120,12 +120,13 @@ if($mem->loggedIn()) { ## if logged in users may skip this page
 	$_SESSION['name'] = $results[3]; // get the users display name
 	$_SESSION['email'] = $results[4]; // users email address
 	$_SESSION['group'] = $results[5]; // what ecg-group is the user in
+    $_SESSION['timezone'] = $results[7]; // what timezone the user has set
 	
 	$_SESSION['auth'] = true; // authorise user to access logged in areas
 	$_SESSION['wrong'] = 0; // reset wrong counter
 	$_SESSION['hack'] = 0; // reset hack atempt count
 	
-	setcookie("game", $game_input, time()*60*60*24*31, $path); // set the game cookie equal to the game choosen in the login form
+	setcookie("game", $game_input, strtotime( '+30 days' ), $path); // set the game cookie equal to the game choosen in the login form
 
 	$_SESSION['finger'] = $ses->getFinger(); // find the hash of user agent plus salt
 

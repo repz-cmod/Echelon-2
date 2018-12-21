@@ -49,7 +49,9 @@ if($is_pb_ban) { // if the ban is perma ban
 	$duration = penDuration($time, $duration_form);
 	
 	$duration_secs = $duration*60; // find the duration in seconds
-	
+    if (!$mem->reqLevel('permban') AND $duration_secs > 86400)
+        sendBack('You can not chose a duration bigger than 1 day.');
+    
 	$time_expire = time() + $duration_secs; // time_expire is current time plus the duration in seconds
 
 } // end if pb/tempban var setup

@@ -67,7 +67,7 @@ if(!$db->error) :
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th>Client-id</th>
+			<th>Client-ID</th>
 			<th>Time Added
 				<?php linkSort('time_add', 'time added'); ?>
 			</th>
@@ -77,7 +77,7 @@ if(!$db->error) :
 	</thead>
 	<tfoot>
 		<tr>
-			<th colspan="5">Click client name to see details</th>
+			<th colspan="5">Click client name to see details.</th>
 		</tr>
 	</tfoot>
 	<tbody>

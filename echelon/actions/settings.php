@@ -4,7 +4,7 @@ require '../inc.php';
 
 ## Check that the form was posted and that the user did not just stumble here ##
 if(!$_POST['settings-sub']) :
-	set_error('Please do not call that page directly, thank you.');
+	set_error('Please do not call that settings page directly, thank you.');
 	send('../index.php');
 endif;
 
@@ -28,7 +28,7 @@ $f_time_format  = cleanvar($_POST['time_format']);
 $f_time_zone = cleanvar($_POST['time_zone']);     
 $f_email_header = cleanvar($_POST['email_header']);
 $f_email_footer = cleanvar($_POST['email_footer']);
-$f_newsfeed = cleanvar($_POST['newsfeed']);
+$f_newsfeed = $_POST['newsfeed'];
 $f_pw_req_level = cleanvar($_POST['pw_req_level']);
 $f_pw_req_level_group = cleanvar($_POST['pw_req_level_group']);
 

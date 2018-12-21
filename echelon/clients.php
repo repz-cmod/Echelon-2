@@ -11,8 +11,8 @@ require 'inc.php';
 ######## Varibles ########
 
 ## Default Vars ##
-$orderby = "id";
-$order = "ASC";
+$orderby = "time_edit";
+$order = "DESC";
 
 $is_search = false;
 
@@ -74,7 +74,7 @@ if($is_search == true) : // IF SEARCH
 		$query = "SELECT client_id AS id, alias AS name, time_edit, time_add FROM aliases WHERE alias LIKE '%$search_string%' ORDER BY $orderby";
 
 	} elseif($search_type == 'ipaliastable') { // IP-ALIAS
-		$query = "SELECT client_id AS id, ip AS name, time_edit, time_add FROM ipaliases WHERE alias LIKE '%$search_string%' ORDER BY $orderby";
+		$query = "SELECT client_id AS id, ip AS name, time_edit, time_add FROM ipaliases WHERE ip LIKE '%$search_string%' ORDER BY $orderby";
 
 	}else { // ALL
 		$query .= "AND c.name LIKE '%$search_string%' OR c.pbid LIKE '%$search_string%' OR c.ip LIKE '%$search_string%' OR c.id LIKE '%$search_string%'
@@ -102,7 +102,9 @@ if(!$db->error) :
 <div class="container my-2">
 <div class="card">
 <div class="card-header">
-    <h5 class="my-auto">Client Listings</h5>
+    <h5 class="my-auto">Client Listings
+    <small class="my-1 float-sm-right"><?php echo $game_name; ?></small>
+    </h5>
     			<?php
 			if($search_type == "all")
 				echo 'You are searching all clients that match <strong>'.$search_string.'</strong>. There are <strong>'. $total_rows .'</strong> entries matching your request.';
@@ -127,7 +129,7 @@ if(!$db->error) :
 			<th>Name
 				<?php linkSortClients('name', 'Name', $is_search, $search_type, $search_string); ?>
 			</th>
-			<th>Client-id
+			<th>Client-ID
 				<?php linkSortClients('id', 'Client-ID', $is_search, $search_type, $search_string); ?>
 			</th>
 			<th>Level
@@ -146,7 +148,7 @@ if(!$db->error) :
 	</thead>
 	<tfoot>
 		<tr>
-			<th colspan="6">Click client name to see details</th>
+			<th colspan="6">Click client name to see details.</th>
 		</tr>
 	</tfoot>
 	<tbody>
@@ -190,7 +192,7 @@ EOD;
 		if($is_search == false)
 			echo 'There are no clients in the database.';
 		else
-			echo 'Your search for <strong>'.$search_string.'</strong> has returned no results.';
+			echo 'Your search for <strong>'.$search_string.'</strong> has returned no results. Maybe try an Alias/IP-Alias search?';
 		echo '</td></tr>';
 	endif; // no records
 	?>

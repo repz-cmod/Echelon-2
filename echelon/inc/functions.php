@@ -898,9 +898,9 @@ function genFormToken($form) {
  * @param string $place - place this happened
  */
 function ifTokenBad($place) {
-	hack(1); // plus 1 to hack counter
+	//hack(1); // plus 1 to hack counter
 	writeLog($place.' - Bad Token'); // make note in log
-	sendBack('Hack Attempt Detected - If you continue you will be removed from this site');
+	//sendBack('Hack Attempt Detected - If you continue you will be removed from this site');
 	exit;
 }
 

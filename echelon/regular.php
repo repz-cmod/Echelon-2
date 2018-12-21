@@ -84,7 +84,7 @@ if(!$db->error) :
 			<th>Connections
 				<?php linkSort('connections', 'Connections'); ?>
 			</th>
-			<th>Client-id
+			<th>Client-ID
 				<?php linkSort('id', 'Client-id'); ?>
 			</th>
 			<th>Level

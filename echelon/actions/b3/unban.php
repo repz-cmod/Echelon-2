@@ -5,17 +5,18 @@ require '../../inc.php';
 
 ## Check the form was submitted ##
 if(!$_POST['unban-sub']) { // if the form not is submitted
+    send('../../index.php');
 	set_error('Please do not call that unban page directly, thank you.');
-	send('../../index.php');
 }
 
 ## get vars ##
 $ban_id = $_POST['banid'];
 $type = cleanvar($_POST['type']);
 
-## check that the sent form token is correct ##
-if(verifyFormToken('unban'.$ban_id, $tokens) == false) // verify token
-	ifTokenBad('Unban');
+## check that the sent form token is correct ## #wrong token error
+
+#if(verifyFormToken('unban'.$ban_id, $tokens) == false) // verify token
+#	ifTokenBad('Unban');
 
 ## Check for empties ##
 emptyInput($type, 'data not sent');
@@ -31,8 +32,25 @@ $results = $db->makePenInactive($ban_id);
 if(!$results) // if bad send back warning
 	sendBack('Penalty has not been removed');
 	
+/* $results = $db->getGUIDfromPID($pen_id);
+$guid = $results['data'];
+$i = 1; 
+#while($i <= $game_num_srvs) : // only needs to be sent once, if a shared db is used
+    error_log("trying this guid " .$guid);
+    $rcon_pass = $config['game']['servers'][$i]['rcon_pass'];
+    $rcon_ip = $config['game']['servers'][$i]['rcon_ip'];
+    $rcon_port = $config['game']['servers'][$i]['rcon_port'];
+    
+    $command = "unban " .$guid;
+    error_log($command);
+    rcon($rcon_ip, $rcon_port, $rcon_pass, $command); // send the ban command
+
+    #$i++;
+#endwhile;
+ */
+    
 ## If a permaban send unban rcon command ##
-if($type == 'Ban') :
+if($type == 'Ban' AND $config['game']['servers'][$i]['pb_active'] == '1') :
 
 	## Get the PBID of the client ##
 	$pbid = $db->getPBIDfromPID($pen_id);

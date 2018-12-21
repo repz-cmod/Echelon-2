@@ -42,6 +42,16 @@ require 'inc/header.php';
             </div>
             <small id="passwordHelpInline" class="text-muted">Your password must be 8-20 characters long and must not contain spaces, special characters, or emoji.</small>
         </div>
+        
+        <h6 class="my-4">Echelon Preferences</h6>
+        <div class="col justify-center">
+            <div class="form-group row">                
+                <label class="col-sm-4 col-form-label" for="timezone">Timezone</label>
+                <div class="col-sm-8"><input class="form-control" type="text" name="timezone" id="timezone" placeholder="e.g. Europe/Berlin" value="<?php echo $_SESSION['timezone'];?>"/></div>
+            </div>
+            <small class="text-muted">Timezone field uses PHP <a class="external" href="http://php.net/manual/en/timezones.php" title="PHP time zone lisiting">time zones.</a></small>
+        </div>
+        
             </div>
             </div>
 			

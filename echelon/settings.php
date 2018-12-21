@@ -43,7 +43,9 @@ require 'inc/header.php';
         <div class="col justify-center">
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="newsfeed">Annoucements</label>
-                    <div class="col-sm-8"><textarea class="form-control" rows="4" name="newsfeed"><?php echo $settings['newsfeed']; ?></textarea></div>
+                    <div class="col-sm-8"><textarea class="form-control" rows="4" name="newsfeed"><?php echo $settings['newsfeed']; ?></textarea>
+                    <small>This field supports HTML.</small>	
+                    </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="email_header">Text to start all emails:</label>
@@ -53,7 +55,7 @@ require 'inc/header.php';
                 <label class="col-sm-4 col-form-label" for="email_footer">Text to end all emails:</label>
                     <div class="col-sm-8"><textarea class="form-control" rows="4" name="email_footer"><?php echo $settings['email_footer']; ?></textarea></div>
             </div>
-            <small>There are some varibles that can be used in the email templates, <strong>%name%</strong> is replaced with the users name, and <strong>%ech_name%</strong> is replaced with the name of the website (eg. your clan name).</small>	
+            <small>There are some variables that can be used in the email templates, <strong>%name%</strong> is replaced with the users name, and <strong>%ech_name%</strong> is replaced with the name of the website (eg. your clan name).</small>	
         </div>        
 
         <h6 class="my-4">Time Settings</h6>

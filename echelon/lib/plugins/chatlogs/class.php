@@ -118,12 +118,12 @@ class chatlogs extends plugins {
 		
 			global $page; // bring in the current page var from main Echelon
 			
-			if($page == __CLASS__)
-				$data = '<li class="n-chat selected">';
-			else
-				$data = '<li class="n-chat">';
+			#if($page == __CLASS__)
+		#		$data = '<li class="n-chat selected">';
+	#		else
+#				$data = '<li class="n-chat">';
 			
-			$data .= '<a href="'. PATH .'plugin.php?pl='.__CLASS__.'" title="Chatlogs from the server(s)">Chat Logs</a></li>';
+			$data = '<a class="dropdown-item" href="'. PATH .'plugin.php?pl='.__CLASS__.'" title="Chatlogs from the server(s)">Chat Logs</a></li>';
 		
 			return $data;
 		

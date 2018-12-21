@@ -122,12 +122,14 @@ if($is_add) : ?>
 		?>
 	</span>
 
-	
-	<a href="settings-games.php?t=add" class="float-right" title="Add a Game (DB) to Echelon">Add Game &raquo;</a>
 
 <div class="container my-2">
 <div class="card card-signin my-2">
-<h5 class="card-header">Game Settings for <?php echo $game_name; ?></h5>
+<h5 class="card-header">Game Settings for <?php echo $game_name; ?>
+<small><a href="settings-games.php?t=add" class="float-right" title="Add a Game (DB) to Echelon">Add Game &raquo;</a></small>
+</h5>
+
+
 <div class="card-body">
 
 	<form action="actions/settings-game.php" method="post">

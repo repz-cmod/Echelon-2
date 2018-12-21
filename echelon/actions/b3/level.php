@@ -62,11 +62,10 @@ endif;
 
 ## Add Echelon Log ##
 $level_name = $b3_groups_name[$level];
+$old_level_name = $b3_groups_name[$old_level];
 if($old_level_name == "")
     $old_level_name == 'Un-Registered';
-else    
-    $old_level_name = $b3_groups_name[$old_level];
-
+ 
 if(!$is_mask)
 	$comment = 'User level changed from '. $old_level_name .' to '. $level_name;
 else

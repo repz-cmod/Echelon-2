@@ -119,6 +119,14 @@ class plugins {
 		endforeach;
 	}
 	
+    function NavExists() {
+        foreach(self::$plugins_class as $plugin) :
+			if(method_exists($plugin, 'returnNav')) {
+				return True;
+			}
+		endforeach;
+    }
+    
 	/**
 	 * For each plugin check if they want to append something to the end of the CD page
 	 */

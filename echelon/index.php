@@ -30,7 +30,7 @@ require 'inc/header.php';
     <br>Your last visit was on <?php $mem->lastSeen('l, jS F Y (H:i)'); ?>.
     <?php endif; ?>
 	</p>
-	<p><?php if(!$no_games) : ?><a class="btn btn-primary btn-lg" href="clients.php?ob=time_edit&o=DESC" title="Enter the repositorty and start exploring Echelon">Enter the Respository</a><?php endif; ?>
+	<p><?php if(!$no_games) : ?><a class="btn btn-primary btn-lg" href="clients.php?ob=time_edit&o=DESC" title="Enter the repository and start exploring Echelon">Enter the Repository</a><?php endif; ?>
     </p>	
         </div>
     </div>
