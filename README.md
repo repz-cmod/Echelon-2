@@ -1,4 +1,4 @@
-# ![BigBrotherBot](http://i.imgur.com/7sljo4G.png) Echelon 2 Beta (v2.2)
+# ![BigBrotherBot](http://i.imgur.com/7sljo4G.png) Echelon 2 Beta (v2.3)
 
 ### If you have older versions of Echelon 2, its recommended that you perform a clean installation. (delete everything and install from scratch)
 
