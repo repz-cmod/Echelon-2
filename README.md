@@ -1,6 +1,6 @@
 # ![BigBrotherBot](http://i.imgur.com/7sljo4G.png) Echelon 2 Beta (v2.2)
 
-NOTE: E-Mail feature is mostly disabled
+### If you have older versions of Echelon 2, its recommended that you perform a clean installation. (delete everything and install from scratch)
 
 Echelon is a web investigation tool for B3 administrators to study detailed statistics and other helpful information: about the B3 bot; game server clients; and admins. Echelon v.2 is not all about just inspecting information, it is also about interacting with the B3 bot; the gameserver; and the B3 MySQL database.
 
@@ -8,7 +8,22 @@ Echelon is a web investigation tool for B3 administrators to study detailed stat
 ![Screenshot1](https://i.gyazo.com/09150cd6fe48886237e06c2635a3a3c0.png)
 
 
+NOTE: E-Mail feature is mostly disabled
+
 # Changelog
+## [2.3] - 21-12-2018
+### Added
+- User can set timezone under Settings --> My Account. 
+- ported Toplist Penalties from Echelon v1
+- Added icons
+
+### Changed
+- fixed Greeting, IP-Alias Search
+- Navigation bar arrangement
+- Maximum tempban duration has been limited to 1 day. Site Admins will be able to customize maximum ban duration in the future.
+
+
+
 ## [2.2] - 12-09-2018
 ### Added
 - ported Alias Table Search from Echelon v1 and added IP-Alias Table Search (only working when explicitly selected in search-dropdown)
