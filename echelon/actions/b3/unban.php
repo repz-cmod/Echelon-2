@@ -32,28 +32,21 @@ $results = $db->makePenInactive($ban_id);
 if(!$results) // if bad send back warning
 	sendBack('Penalty has not been removed');
 	
-/* $results = $db->getGUIDfromPID($pen_id);
-$guid = $results['data'];
+$guid = $db->getGUIDfromPID($ban_id);
 $i = 1; 
-#while($i <= $game_num_srvs) : // only needs to be sent once, if a shared db is used
-    error_log("trying this guid " .$guid);
-    $rcon_pass = $config['game']['servers'][$i]['rcon_pass'];
-    $rcon_ip = $config['game']['servers'][$i]['rcon_ip'];
-    $rcon_port = $config['game']['servers'][$i]['rcon_port'];
-    
-    $command = "unban " .$guid;
-    error_log($command);
-    rcon($rcon_ip, $rcon_port, $rcon_pass, $command); // send the ban command
+$rcon_pass = $config['game']['servers'][$i]['rcon_pass'];
+$rcon_ip = $config['game']['servers'][$i]['rcon_ip'];
+$rcon_port = $config['game']['servers'][$i]['rcon_port'];
 
-    #$i++;
-#endwhile;
- */
+$command = "unban " .$guid; #cod unban cmd
+rcon($rcon_ip, $rcon_port, $rcon_pass, $command); // send the rcon unban command
+
     
 ## If a permaban send unban rcon command ##
 if($type == 'Ban' AND $config['game']['servers'][$i]['pb_active'] == '1') :
 
 	## Get the PBID of the client ##
-	$pbid = $db->getPBIDfromPID($pen_id);
+	$pbid = $db->getPBIDfromPID($ban_id);
 	
 	## Loop thro server for this game and send unban command and update ban file
 	$i = 1;
