@@ -186,9 +186,9 @@ INSERT INTO `ech_config` VALUES ('15', 'pw_req_level_group', '64');
 INSERT INTO `ech_config` VALUES ('16', 'reg_clan_tags', '=(e)=,=(eG)=,=(eGO)=,{KGB}');
 INSERT INTO `ech_config` VALUES ('17', 'newsfeed', 'Echelon has been updated. Please report errors at https://github.com/miltann/Echelon-2.  -WatchMiltan');
 INSERT INTO `ech_groups` VALUES ('1', 'visitor', 'Visitor', '1,2,4,5');
-INSERT INTO `ech_groups` VALUES ('2', 'siteadmin', 'Site Admin', '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27');
-INSERT INTO `ech_groups` VALUES ('3', 'senioradmin', 'Senior Admin', '1,2,3,4,5,8,12,14,16,17,20,21,22,23,24');
-INSERT INTO `ech_groups` VALUES ('4', 'admin', 'Admin', '1,2,3,4,5,8,16,17,20,21,22');
+INSERT INTO `ech_groups` VALUES ('2', 'siteadmin', 'Site Admin', '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28');
+INSERT INTO `ech_groups` VALUES ('3', 'senioradmin', 'Senior Admin', '1,2,3,4,5,8,12,14,16,17,20,21,22,23,24,28');
+INSERT INTO `ech_groups` VALUES ('4', 'admin', 'Admin', '1,2,3,4,5,8,16,17,20,21,22,28');
 INSERT INTO `ech_groups` VALUES ('5', 'mod', 'Moderator', '1,2,3,4,5,8,16,22');
 INSERT INTO `ech_links` VALUES ('1', 'http://wiki.bigbrotherbot.net/doku.php/echelon', 'Echelon Help Wiki', 'Documentation for the installation and use of Echelon');
 INSERT INTO `ech_links` VALUES ('2', 'http://echelon.bigbrotherbot.net/', 'Echelon Home', 'Home site of Echelon project, check here for development news, updates, and information regarding Echelon');
@@ -223,3 +223,4 @@ INSERT INTO `ech_permissions` VALUES ('24', 'edit_xlrstats', 'Allows user to edi
 INSERT INTO `ech_permissions` VALUES ('25', 'ctime', 'Allows user to view CTime information');
 INSERT INTO `ech_permissions` VALUES ('26', 'see_update_msg', 'Shows this user the Echelon needs updating message');
 INSERT INTO `ech_permissions` VALUES ('27', 'chats_talk_back', 'Allows the user to talk back to the server using the Chats Plugin');
+INSERT INTO `ech_permissions` VALUES ('28', 'permban', 'Allows user to permban player.');
