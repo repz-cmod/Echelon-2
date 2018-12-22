@@ -34,15 +34,18 @@ if(!$results) // if bad send back warning
 	
 $guid = $db->getGUIDfromPID($ban_id);
 $i = 1; 
-$rcon_pass = $config['game']['servers'][$i]['rcon_pass'];
-$rcon_ip = $config['game']['servers'][$i]['rcon_ip'];
-$rcon_port = $config['game']['servers'][$i]['rcon_port'];
-
-$command = "unban " .$guid; #cod unban cmd
-rcon($rcon_ip, $rcon_port, $rcon_pass, $command); // send the rcon unban command
-
+if($i <= $game_num_srvs) : // only needs to be sent once, if a shared db is used
     
-## If a permaban send unban rcon command ##
+    $rcon_pass = $config['game']['servers'][$i]['rcon_pass'];
+    $rcon_ip = $config['game']['servers'][$i]['rcon_ip'];
+    $rcon_port = $config['game']['servers'][$i]['rcon_port'];
+    
+    $command = "unban " .$guid;
+    rcon($rcon_ip, $rcon_port, $rcon_pass, $command); // send the ban command
+endif;
+ 
+    
+## If a permban send unban rcon command ##
 if($type == 'Ban' AND $config['game']['servers'][$i]['pb_active'] == '1') :
 
 	## Get the PBID of the client ##
