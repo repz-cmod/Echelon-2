@@ -12,6 +12,7 @@ if(!$_POST['unban-sub']) { // if the form not is submitted
 ## get vars ##
 $ban_id = $_POST['banid'];
 $type = cleanvar($_POST['type']);
+$cid = cleanvar($_POST['cid']);
 
 ## check that the sent form token is correct ## #wrong token error
 
@@ -73,6 +74,9 @@ if($type == 'Ban' AND $config['game']['servers'][$i]['pb_active'] == '1') :
 	endwhile;
 
 endif;
+
+$comment = 'Unbanned Ban-ID '.$ban_id;
+$dbl->addEchLog('Unban', $comment, $cid, $mem->id, $game);
 
 if($results) // if good results send back good message
 	sendGood('Penalty has been deactivated.');
