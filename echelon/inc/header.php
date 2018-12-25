@@ -26,6 +26,8 @@ if($pagination == true && (!$db_error)) : // if pagination is needed on the page
 		}
 	} else
 		$total_pages = 0;
+
+
 endif;
 date_default_timezone_set($_SESSION['timezone']);
 ?>
@@ -173,12 +175,13 @@ date_default_timezone_set($_SESSION['timezone']);
 
 
 		<?php } else { // if user has no permissions (e.g. visitor or group without any permisions ?> 
+        </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link text-uppercase" href="<?php echo PATH; ?>pubbans.php" title="Public Ban List">Public Ban List</a>
             </li>
         </ul>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link text-uppercase" href="<?php echo PATH; ?>login.php" title="Login to Echelon">Login</a>
             </li>
@@ -240,18 +243,8 @@ date_default_timezone_set($_SESSION['timezone']);
 
 	<?php 
 
-	## if Site Admin check for current Echelon Version and if not equal add warning
-	if($mem->reqLevel('see_update_msg')) :
-		$day_of_week = date('N');
-	
-		if( (isSA() || isHome()) && ($day_of_week == 1) ) {
-			$latest = getEchVer();
-			if(ECH_VER !== $latest && $latest != false) // if current version does not equal latest version show warning message
-				set_warning('You are not using the lastest version of Echelon, please check the <a href="http://www.bigbrotherbot.com/forums/" title="Check the B3 Forums">B3 Forums</a> for more information.');
-		}
-	endif;
-
-	errors(); // echo out all errors/success/warnings
+    if(!isHome())
+        errors(); // echo out all errors/success/warnings
 
 	if($query_normal) : // if this is a normal query page and there is a db error show message
 	

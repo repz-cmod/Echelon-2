@@ -21,7 +21,19 @@ require 'inc/header.php';
 			<p>Welcome to Echelon for the first time, now all you need to do is good to the 'Echelon' tab in the navigation up above. It is suggested that you change the settings, and setup game and server information for Echelon.</p>
 		</div>
 		
-	<?php endif; ?>
+	<?php endif; 
+    
+	## if Site Admin check for current Echelon Version and if not equal add warning
+	if($mem->reqLevel('see_update_msg')) :
+		if(isHome()) {
+			$latest = getEchVer();
+			if(ECH_VER !== $latest && $latest != false) // if current version does not equal latest version show warning message
+				set_warning('You are not using the lastest version of Echelon. Please check the <a href="https://github.com/miltann/Echelon-2">Echelon Github repository</a> for the latest version.');
+		}
+	endif;
+    	errors(); // echo out all errors/success/warnings
+    
+    ?>
 	     
     <h1 class="display-3">Welcome, <?php echo $mem->displayName();?>!</h1>
     <?php if(!$no_games) : ?>
