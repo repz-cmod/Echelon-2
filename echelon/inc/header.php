@@ -26,10 +26,8 @@ if($pagination == true && (!$db_error)) : // if pagination is needed on the page
 		}
 	} else
 		$total_pages = 0;
-
-
-date_default_timezone_set($_SESSION['timezone']);
 endif;
+date_default_timezone_set($_SESSION['timezone']);
 ?>
 <!doctype html>
 <html lang="en">
