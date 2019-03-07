@@ -125,19 +125,20 @@ require 'inc/header.php';
 
 <div class="container">
 <div class="card">
-<div class="card-body row">
-<div class="nav flex-column nav-pills mx-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-		<?php if($mem->reqLevel('ban')) { ?><a class="nav-link active" id="bansection-tab"" data-toggle="pill" href="#bansection" role="tab" aria-controls="bansection" aria-selected="true"><h6 class="my-auto">Ban</h6></a><?php } ?>
-		<?php if($mem->reqLevel('edit_client_level')) { ?><a class="nav-link" id="setlevel-tab" data-toggle="pill" href="#setlevel" role="tab" aria-controls="setlevel" aria-selected="false"><h6 class="my-auto">Set Level</h6></a><?php } ?>
-		<?php if($mem->reqLevel('edit_mask')) { ?>  <a class="nav-link" id="cd-act-mask-tab" data-toggle="pill" href="#cd-act-mask" role="tab" aria-controls="cd-act-mask" aria-selected="false"><h6 class="my-auto">Mask Level</h6></a><?php } ?>
-        <?php if($mem->reqLevel('greeting')) { ?><a class="nav-link" id="setgreeting-tab" data-toggle="pill" href="#setgreeting" role="tab" aria-controls="setgreeting" aria-selected="false"><h6 class="my-auto">Greeting</h6></a><?php } ?>
-        <?php if($mem->reqLevel('comment')) { ?><a class="nav-link" id="addcomment-tab" data-toggle="pill" href="#addcomment" role="tab" aria-controls="addcomment" aria-selected="false"><h6 class="my-auto">Comment</h6></a><?php } ?>
+<div class="card-header">
+<ul class="nav nav-pills nav-fill mx-2" role="tablist">
+		<?php if($mem->reqLevel('ban')) { ?><li class="nav-item"><a class="nav-link active" id="bansection-tab"" data-toggle="pill" href="#bansection" role="tab" aria-controls="bansection" aria-selected="true"><h6 class="my-auto">Ban</h6></a></li><?php } ?>
+		<?php if($mem->reqLevel('edit_client_level')) { ?><li class="nav-item"><a class="nav-link" id="setlevel-tab" data-toggle="pill" href="#setlevel" role="tab" aria-controls="setlevel" aria-selected="false"><h6 class="my-auto">Set Level</h6></a></li><?php } ?>
+		<?php if($mem->reqLevel('edit_mask')) { ?><li class="nav-item"><a class="nav-link" id="cd-act-mask-tab" data-toggle="pill" href="#cd-act-mask" role="tab" aria-controls="cd-act-mask" aria-selected="false"><h6 class="my-auto">Mask Level</h6></a></li><?php } ?>
+        <?php if($mem->reqLevel('greeting')) { ?><li class="nav-item"><a class="nav-link" id="setgreeting-tab" data-toggle="pill" href="#setgreeting" role="tab" aria-controls="setgreeting" aria-selected="false"><h6 class="my-auto">Greeting</h6></a></li><?php } ?>
+        <?php if($mem->reqLevel('comment')) { ?><li class="nav-item"><a class="nav-link" id="addcomment-tab" data-toggle="pill" href="#addcomment" role="tab" aria-controls="addcomment" aria-selected="false"><h6 class="my-auto">Comment</h6></a></li><?php } ?>
 		<?php 
-            
 			if(!$no_plugins_active)
 				$plugins->displayCDFormTab();
 		?>
-	</div>
+</ul>
+</div>
+<div class="card-body row">
     <div class="col">
         <div class="tab-content" id="v-pills-tabContent">
   
