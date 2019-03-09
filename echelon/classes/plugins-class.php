@@ -75,7 +75,7 @@ class plugins {
 	function displayCDFormTab() {
 		foreach(self::$plugins_class as $plugin) :
 			if(method_exists($plugin, 'returnClientFormTab')) {
-				$content = $plugin->returnClientFormTab();
+				$content = '<li class="nav-item">' .$plugin->returnClientFormTab(). '</li>';
                 if (!(empty($plugin->returnClientBio())))
                     echo $content;
 			}
