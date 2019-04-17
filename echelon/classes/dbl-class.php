@@ -257,6 +257,30 @@ class DbL {
 		else
 			return false;
     }
+    
+	/**
+	 * Add new settings to Echelon (ech_config)
+	 *
+	 * @param string/int $value - the new value for the setting
+	 * @param string $name - the name of the settings
+	 * @param string $value_type - wheather the value provided is a string or an int
+	 * @return bool
+	 */
+    function addSettings($value, $name, $value_type) {
+        
+		$query = "INSERT INTO ech_config (id, value, name) VALUES (NULL, ?, ?)";
+		$stmt = $this->mysql->prepare($query) or die('Database Error');
+		$stmt->bind_param($value_type.'s', $value, $name);
+		$stmt->execute();
+		
+		$affect = $stmt->affected_rows;
+		$stmt->close();
+		
+		if($affect > 0)
+			return true;
+		else
+			return false;
+    }
 	
 	/**
 	 * Update game settings
