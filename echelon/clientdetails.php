@@ -362,7 +362,8 @@ require 'inc/header.php';
 <?php
 	endif; // end hide is no records
 	if(!$no_plugins_active)
-        $plugins->displayCDFormNavTab($cid)
+        $plugins->displayCDFormNavTab($cid);
+        $plugins->displayCDFormNavTabLog($cid)
 ?> 
 </ul>
 </div>
@@ -583,19 +584,24 @@ EOD;
 </div>
 <?php
 	endif; // end hide is no records
+
+    ## Plugins Client Bio Area ##
+    if(!$no_plugins_active):  
+?>
+<div id="chatlog" class="tab-pane fade" role="tabpanel" aria-labelledby="chatlog-tab">
+<?php
+## Plugins Log Include Area ##
+$plugins->displayCDlogs($cid);?>
+</div>
+<?php
+	endif; // end hide is no records
 ?>
 </div>
 </div>
 </div>
 </div>
 
-
-
 <?php
-## Plugins Log Include Area ##
-if(!$no_plugins_active)
-	$plugins->displayCDlogs($cid);
-
 // Close page off with the footer
 require 'inc/footer.php'; 
 ?>
