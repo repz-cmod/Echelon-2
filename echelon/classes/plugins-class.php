@@ -82,6 +82,7 @@ class plugins {
 		endforeach;
 	}
 
+    # For plugins like xlrstats
 	function displayCDFormNavTab() {
 		foreach(self::$plugins_class as $plugin) :
 			if(method_exists($plugin, 'returnClientNavTab')) {
@@ -91,7 +92,17 @@ class plugins {
 			}
 		endforeach;
 	}
-	
+    
+	# For logging plugins like chatlogger
+	function displayCDFormNavTabLog($cid = 0) {
+		foreach(self::$plugins_class as $plugin) :
+			if(method_exists($plugin, 'returnClientNavTabLog')) {
+				$content = $plugin->returnClientNavTabLog();
+                #if ($plugin->returnClientLogs($cid))
+                    echo '<li class="nav-item">'.$content.'</li>';
+			}
+		endforeach;
+	}
 	
 	/**
 	 * This function display forms on the clientdetails page added by any plugins
@@ -133,7 +144,7 @@ class plugins {
 	function displayCDlogs($cid) {
 		foreach(self::$plugins_class as $plugin) :
 			if(method_exists($plugin, 'returnClientLogs')) {
-				$content = $plugin->returnClientlogs($cid);
+				$content = $plugin->returnClientLogs($cid);
 				echo $content;
 			}
 		endforeach;
