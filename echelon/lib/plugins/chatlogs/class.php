@@ -90,7 +90,15 @@ class chatlogs extends plugins {
 	protected function getName() {
 		return parent::getName();
 	}
+
+	public function returnClientNavTabLog() {
+		
+		global $mem; // use the member class instance from outside this class
 	
+		if($mem->reqLevel(__CLASS__))
+			return '<a class="nav-link" id="chatlog-tab" href="#chatlog" data-toggle="tab" role="tab" aria-controls="chatlog" aria-selected="false"><h6 class="my-auto">Chatlog</h6></a>';
+
+	}   	
 	
 	/**
 	 * Returns a list of chatlogs of the client
@@ -98,12 +106,11 @@ class chatlogs extends plugins {
 	 * @param int $cid - the client id of the user that we need the logs for
 	 */
 	public function returnClientLogs($cid) {
-	
 		$tables_info = $this->getTables(); // get the table information for the chatlogs queries
 		$tables_names = $this->getTablesNames();
 		
 		global $tformat; // get the time format for use in the logs
-	
+    
 		include 'chatlogs-cd.php'; // include the file
 	}
 	
@@ -117,12 +124,7 @@ class chatlogs extends plugins {
 		if($mem->reqLevel(__CLASS__)) :
 		
 			global $page; // bring in the current page var from main Echelon
-			
-			#if($page == __CLASS__)
-		#		$data = '<li class="n-chat selected">';
-	#		else
-#				$data = '<li class="n-chat">';
-			
+					
 			$data = '<a class="dropdown-item" href="'. PATH .'plugin.php?pl='.__CLASS__.'" title="Chatlogs from the server(s)">Chat Logs</a></li>';
 		
 			return $data;
@@ -420,7 +422,7 @@ EOD;
 				$rcon_ip = $config['game']['servers'][$srv_id]['rcon_ip'];
 				$rcon_port = $config['game']['servers'][$srv_id]['rcon_port'];
 			
-				$command = "say ^7(^3". $mem->name ."^7): ^2" . $talkback;
+				$command = "say ^7[^3". $mem->name ."^7]: " . $talkback;
 				$return = rcon($rcon_ip, $rcon_port, $rcon_pass, $command);
 			} else
 				sendBack('You left the message box empty, please fill in the box to send a message to the server');
