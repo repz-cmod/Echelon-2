@@ -130,7 +130,7 @@
 		## Send the admin their email ##
 		$body = '<html><body>';
 		$body .= '<h2>Echelon Admin User Information</h2>';
-		$body .= 'This is the admin user login informtion.<br />';
+		$body .= 'This is the admin user login information.<br />';
 		$body .= 'Username: <b>admin</b><br />';	
 		$body .= 'Password: <b>' . $user_pw . "</b><br />";
 		$body .= 'If you have not already, please entirely remove the install folder from Echelon (/echelon/install/).<br />';
@@ -189,7 +189,7 @@
 							<h3>Things that are done</h3>
 							<ul>
 								<li>The database information you provided was correct</li>
-								<li>Your config file was writen</li>
+								<li>Your config file was written</li>
 								<li>An email was sent, to the email address you supplied, with the user information for your Echelon 'Admin' account</li>
 							</ul>
 						</div>
