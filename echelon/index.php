@@ -28,7 +28,7 @@ require 'inc/header.php';
 		if(isHome()) {
 			$latest = getEchVer();
 			if(ECH_VER !== $latest && $latest != false) // if current version does not equal latest version show warning message
-				set_warning('You are not using the lastest version of Echelon. Please check the <a href="https://github.com/miltann/Echelon-2">Echelon Github repository</a> for the latest version.');
+				set_warning('You are not using the latest version of Echelon. Please check the <a href="https://github.com/miltann/Echelon-2">Echelon Github repository</a> for the latest version.');
 		}
 	endif;
     	errors(); // echo out all errors/success/warnings
