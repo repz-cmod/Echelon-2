@@ -45,10 +45,10 @@ while($i < $num_tables) : // write and preform query for each server
 	endwhile;
 	
 	// find num of rows found
-	$num_rows_{$i} = $results->num_rows;
+	$num_rows_[$i] = $results->num_rows;
 	
 	// start count on num of total overall rows
-	$total_overall_rows = $total_overall_rows + $num_rows_{$i}; // keeps last loop number plus addition of this loops num_rows
+	$total_overall_rows = $total_overall_rows + $num_rows_[$i]; // keeps last loop number plus addition of this loops num_rows
 	
 	// add 1 to counter
 	$i++;
@@ -71,7 +71,7 @@ echo '<div class="tab-content" id="chatlog">
 	while ($i < $num_tables) : // loop for 1 tab per server ?>
 	
 		<div id="chat-tab-<?php echo $i; ?>" class="chat-content">
-			<?php if($num_rows_{$i} == 0) { ?>
+			<?php if($num_rows_[$i] == 0) { ?>
 					<table style="display: none;">
 			<?php } else { ?>
 					<table width="100%">
@@ -92,7 +92,7 @@ echo '<div class="tab-content" id="chatlog">
 	
 		<?php // nested while loop for content
 			
-			if($num_rows_{$i} > 0) :
+			if($num_rows_[$i] > 0) :
 				
 				foreach($records[$i] as $record) : //there are still rows in results
 					
