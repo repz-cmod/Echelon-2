@@ -44,7 +44,7 @@ All the files are copyrighted by WatchMiltan, Eire.32 (eire32designs.com) and Bi
 
 ## Requirements ##
 - Webserver (Aphace currently, other support coming soon)
-- Version 5+ PHP
+- Version PHP 5.x (not tested for PHP 7.x and will likely give you errors)
 - MySQL DB (your B3 DB will work, but a seperate  one is advised)
 - A MySQL user with connection rights to your B3 databases
 - RCON details for the servers running B3 (RCON support is currently being phased out of Echelon)
