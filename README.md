@@ -40,11 +40,11 @@ NOTE: E-Mail feature is mostly disabled
 
 
 ## Echelon Development v2 ##
-All the files are copyrighted by WatchMiltan, Eire.32 (eire32designs.com) and Bigbrotherbot (bigbrotherbot.com)
+All the files are copyrighted by Eire.32 (eire32designs.com) and Bigbrotherbot (bigbrotherbot.com)
 
 ## Requirements ##
-- Webserver (Aphace currently, other support coming soon)
-- Version PHP 5.x (not tested for PHP 7.x and will likely give you errors)
+- Webserver
+- Version PHP 5+ (tested for PHP 7.2.32 and PHP 5.6.40)
 - MySQL DB (your B3 DB will work, but a seperate  one is advised)
 - A MySQL user with connection rights to your B3 databases
 - RCON details for the servers running B3 (RCON support is currently being phased out of Echelon)
@@ -57,6 +57,11 @@ All the files are copyrighted by WatchMiltan, Eire.32 (eire32designs.com) and Bi
 - Delete the install folder once the web installer is done
 - Login to Echelon using the credentials that were emailed to you
 - Setup and config your Echelon to your needs
+
+## FAQ ##
+// I get this error: 
+![Screenshot1](https://gyazo.com/f1d86e89ac677e49363a600c175eb813)
+Enable Chatlogger in the game settings, even if you don't have the chatlogger plugin installed on your server.
 
 ## NOTE ##
 Please understand that there are large portions of Echelon that are unfinished. Please check back to this repo for the latest version.
