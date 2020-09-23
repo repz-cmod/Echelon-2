@@ -36,8 +36,6 @@ $page_title .= ' '.$name; // add the clinets name to the end of the title
 
 require 'inc/header.php';
 ?>
-
-
 <div class="container">
 <div class="card my-2">
 <div class="card-header">
@@ -47,13 +45,16 @@ require 'inc/header.php';
 	<tbody>
 		<tr>
 			<th>Name</th>
-				<td><?php echo  tableClean($name); ?></td>
+				<td><?php echo tableClean($name); ?>&nbsp;&nbsp;&nbsp;
+                <?php $http = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on'? "https://" : "http://"; ?>
+                    <input type="image" title="Copy client URL to clipboard" onclick="copyToClipboard('<?php echo $http.$_SERVER['SERVER_NAME'].PATH;?>clientdetails.php?id=<?php echo $cid; ?>&amp;game=<?php echo $game;?>')" src="images/link.png" width="16" height="16" alt="W">
+                </td>
 			<th>@ID</th>
 				<td><?php echo $cid; ?></td>
-		</tr>
+		</tr>       
 		<tr>
 			<th>Level</th>
-				<td><?php 
+				<td><?php
 					if($user_group == NULL)
 						echo 'Un-registered';
 					else
@@ -363,7 +364,7 @@ require 'inc/header.php';
 	endif; // end hide is no records
 	if(!$no_plugins_active)
         $plugins->displayCDFormNavTab($cid);
-        $plugins->displayCDFormNavTabLog($cid)
+        $plugins->displayCDFormNavTabLog($cid);
 ?> 
 </ul>
 </div>
