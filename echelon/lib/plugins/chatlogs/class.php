@@ -329,7 +329,7 @@ class chatlogs extends plugins {
 		else
 			$ani = '';
 
-		if(count($data_set) > 0) :
+		if(count((array)$data_set) > 0) :
 	
 		foreach($data_set as $data):
 			$id = $data['id'];
